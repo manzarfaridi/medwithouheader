@@ -1,0 +1,5147 @@
+ :root {
+        --bda-global-nav-color:  #1a2238;
+        --text-header: #f9fbfd;
+        --text-footer: #f9fbfd;
+        --mob-drop-down-color:#212529;
+        --ramba-secion-color: #f9fbfd;
+        --bg-color: #f9fbfd;
+        --text-main: #ff4500;
+        --text-muted: #1a2238;
+        --border-color: #eeeeee;
+        --font-serif: "Playfair Display", Georgia, serif;
+        --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+        --container-max-width: 1200px; /* वेबसाइट के मुख्य कंटेंट की अधिकतम चौड़ाई */
+        --primary-color: #1a2238;   /* Deep Blue Theme */
+        --accent-color: #ff4500;    /* Vibrant Action Orange */
+        --text-dark: #333333;
+        --text-light: #666666;
+        --bg-light: #f9fbfd;
+        --white: #ffffff;
+        --error-red: #ef4444;
+        --success-green: #22c55e;
+        --bda-hamburger: #1a2238;
+        --bda-nav-container: #1a2238;
+        /* 1. Define the variables globally */
+        --main-margin-left: 10px;
+        --main-margin-right: 10px;
+        --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+
+      * {
+        box-sizing: border-box;
+        margin: 0 0px 0 0px;
+        padding: 0;
+      }
+
+      .body {
+        font-family: var(--font-sans);
+        background-color: var(--bda-global-nav-color);
+        color: var(--text-main);
+        line-height: 1.7;
+        padding: 0;
+      }
+/* ============= BDA - HEADER FRAMEWORk STARTS  ==============*/  
+/*========================================================*/
+/*BIHAR DRUGS AGENCY (BDA) HEADER MENU ON CLICK HOVER STARTS
+/*========================================================*/
+    /* 1. Normal Links ki Styling */
+.bda-nav-menu li a {
+    text-decoration: none;
+    color: var(--bg-light);
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+}
+
+/* 2. HOVER EFFECT: Mouse le jane par */
+.bda-nav-menu li a:hover {
+    color: var(--accent-color);
+    background-color: var(--bda-global-nav-color);
+}
+
+/* 3. ON-PAGE ACTIVE EFFECT: Jo page khula hai wo permanent aisa rahega */
+.bda-nav-menu li a.bda-active {
+    color: var(--accent-color);
+    background-color: var(--bda-global-nav-color);
+    font-weight: bold ;
+}
+/*========================================================*/
+/*BIHAR DRUGS AGENCY (BDA) HEADER MENU ON CLICK HOVER ENDS
+/*========================================================*/
+/* --- 1. Top Navbar Styling --- */
+.bda-global-nav {
+    /* 2. Apply the variables to your elements */
+    background-color: var(--bda-global-nav-color);
+    padding: 1.5rem 0 ;
+    position: fixed ;
+    top: 0 ;
+    left: 0;
+    z-index: 10001 ;
+    width: 100% ;
+}
+.bda-nav-container {
+    max-width: 1200px ;
+    margin: 0 auto ;
+    padding: 0 1.5rem ;
+    display: flex ;
+    justify-content: space-between ;
+    align-items: center ;
+    box-sizing: border-box ;
+}
+.bda-brand-logo {
+    color: #ffffff ;
+    font-size: 1.75rem ;
+    font-weight: 800 ;
+    text-decoration: none ;
+    letter-spacing: 1px ;
+}
+
+.bda-nav-menu {
+    display: flex ;
+    list-style: none ;
+    gap: 1.75rem ;
+    margin: 0 ;
+    padding: 0 ;
+}
+
+.bda-nav-menu a {
+    color: var(--bg-light);
+    text-decoration: none ;
+    font-weight: 500 ;
+    font-size: 22px ;
+    /*opacity: 0.85 ;*/
+    transition: all 0.8s ease ; 
+    text-align: center;
+}
+.bda-nav-menu a:hover, 
+.bda-nav-menu a.bda-active {
+    opacity: 1 ;
+    border-radius: 8px;
+    padding-bottom: 4px ;
+    /*border: 2px solid #d71920;*/
+    color: var(--accent-color);
+}
+@media (max-width: 768px) {
+   .bda-nav-menu { display: none ; }
+}
+/* --- Hemberg Buttun Style (it will be hiden by defalt in large screen) --- */
+.bda-hamburger {
+    display: none ;
+    flex-direction: column ;
+    justify-content: space-between ;
+    width: 30px ;
+    height: 21px ;
+    background: transparent ;
+    border: none ;
+    cursor: pointer ;
+    padding: 0 ;
+    z-index: 10001 ;
+}
+
+.bda-hamburger span {
+    width: 100% ;
+    height: 3px ;
+    background-color:var(--bda-global-nav-color);
+    border-radius: 2px ;
+    transition: all 0.10s cubic-bezier(0.4, 0, 0.2, 1) ;
+}
+
+/* --- 📱 Mobile screen's Responsive Rules  --- */
+@media (max-width: 768px) {
+    .bda-hamburger {
+        display: flex ; /* Hembuerg button Will show */
+    }
+
+    /* in Mobile menu will be drop down type in sparate box  */
+    body .bda-nav-menu {
+        display: flex ;
+        flex-direction: column ;
+        position: absolute ;
+        top: 100% ;
+        left: 0 ;
+        width: 100% ;
+        background-color: var(--accent-color); 
+        padding: 0 ;
+        gap: 0 ;
+        max-height: 0 ; 
+        overflow: hidden ;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1) ; /* Smooth Opening*/
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1) ;
+    }
+
+    body .bda-nav-menu li {
+        width: 100% ;
+        border-top: 1px solid var(--accent-color);
+    }
+
+    body .bda-nav-menu a {
+        display: block ;
+        padding: 1.25rem 1.5rem ;
+        width: 100% ;
+    }
+
+    body .bda-nav-menu a:hover, 
+    body .bda-nav-menu a.bda-active {
+        background-color: var(--accent-color);
+        border-bottom: none ;
+        padding-bottom: 1.25rem ;
+        color: var(--bg-color);
+    }
+
+    /* --- 🌟 JAvscript se active classes --- */
+    
+    /* When Menu will open (Max-height will get Greater) */
+    body .bda-nav-menu.bda-menu-open {
+        max-height: 400px ; 
+    }
+
+    /* Animation for turning Hmeburg to 'x' */
+    .bda-hamburger.bda-close-toggle span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg) ;
+    }
+    .bda-hamburger.bda-close-toggle span:nth-child(2) {
+        opacity: 0 ; 
+    }
+    .bda-hamburger.bda-close-toggle span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg) ;
+    }
+}
+
+.bda-nav-container {
+    max-width: 1200px ;
+    margin: 0 auto ;
+    padding: 0 1.5rem ;
+    display: flex ;
+    align-items: center ;
+    box-sizing: border-box ;
+}
+
+/* logo and Links to be kept left side (setting) */
+.bda-brand-logo {
+    color: var(--auth-bg-light) ;
+    text-decoration: none ;
+    letter-spacing: 2px ;
+    margin-right: 2rem ;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.bda-nav-menu {
+    display: flex ;
+    list-style: none ;
+    gap: 1.5rem ;
+    margin: 0 ;
+    padding: 0 ;
+    flex-grow: 1 ; 
+}
+
+.bda-nav-menu a:hover, 
+.bda-nav-menu a.bda-active {
+    opacity: 1 ;
+    border-bottom: 2px solid var(--bg-light);
+    padding-bottom: 4px ;
+}
+
+/* --- 2. Desktop Search Bar with orange Button --- */
+.bda-search-wrapper {
+    position: relative ;
+}
+
+.bda-mobile-search-trigger {
+    display: none ; /* on Desktop Mobile icon will hide */
+}
+
+.bda-search-form {
+    display: flex ;
+    align-items: center ;
+    border: 2px solid var(--auth-bg-light);
+    background-color: transparent ;
+    border-radius: 2px ;
+    overflow: hidden ;
+    height: 40px;
+    min-width: 18%;
+}
+
+.bda-search-input {
+    background-color: var(--bda-global-nav-color);
+    border: none ;
+    padding: 0.4rem 0.75rem ;
+    color: var(--auth-bg-light);
+    font-size: 0.9rem ;
+    outline: none ;
+    width: 180px ;
+}
+
+.bda-search-input::placeholder {
+    color: var(--auth-bg-light);
+    opacity: 0.7 ;
+}
+
+.bda-search-btn {
+    background-color: #ff3d00 ; 
+    color: var(--auth-bg-light);
+    padding: 15px;
+    cursor: pointer ;
+    font-size: 17px ;
+    display: flex ;
+    align-items: center ;
+    justify-content: center ;
+}
+
+/* --- 3. Hemberg Button Base Design--- */
+.bda-hamburger {
+    display: none ;
+    flex-direction: column ;
+    justify-content: space-between ;
+    width: 24px ;
+    height: 18px ;
+    background: transparent ;
+    border: none ;
+    cursor: pointer ;
+    padding: 0 ;
+}
+
+.bda-hamburger span {
+    width: 100% ;
+    height: 2.5px ;
+    background-color: var(--bg-color);
+    border-radius: 2px ;
+    transition: all 0.3s ease ;
+    
+}
+/* --- 📱 4. Mobile Tablet screen Responsive Rules --- */
+@media (max-width: 768px) {
+    .bda-nav-container {
+        justify-content: space-between ; 
+    }
+
+    /* Hemburg Will show left side */
+    .bda-hamburger {
+        display: flex ;
+        order: 1 ;
+    }
+
+    /* Logo will come in middle */
+    .bda-brand-logo {
+        order: 2 ;
+        margin: 0 auto ;
+        position: absolute ;
+        left: 50% ;
+        transform: translateX(-50%) ;
+    }
+
+    /* Search raper will be Right side  */
+    .bda-search-wrapper {
+        order: 3 ;
+    }
+
+    /* On Mobile Inplace of Search bar only Search Icin Will show */
+    .bda-mobile-search-trigger {
+        display: block ;
+        background: transparent ;
+        border: none ;
+        color: #ffffff ;
+        font-size: 1.25rem ;
+        cursor: pointer ;
+    }
+
+    /* Mobile Search Form  will be hidden when triggered will show below */
+    body .bda-search-form {
+        display: none;
+        position: absolute !important;
+        top: 100%;
+        right: 0;
+        background-color: #f9fbfd;
+        width: 220px;
+        margin-top: 0.75rem;
+        border: 1px solid #f9fbfd;
+        box-shadow: 0 4px 10px rgba(212, 8, 8, 0.2);
+    }
+
+    /* When java script Class will be Activated then Mobile search Box will show */
+    body .bda-search-form.bda-search-open {
+        display: flex;
+    }
+
+    body .bda-search-input {
+        width: 100% ;
+        padding: 0.5rem ;
+    }
+
+    /* Mobile Slide Down menu links */
+    body .bda-nav-menu {
+        display: flex ;
+        flex-direction: column ;
+        position: absolute ;
+        top: 100% ;
+        left: 0 ;
+        width: 100% ;
+        background-color: var(--bda-global-nav-color);
+        padding: 0 ;
+        gap: 0 ;
+        max-height: 0 ;
+        overflow: hidden ;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1) ;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1) ;
+    }
+
+    body .bda-nav-menu li {
+        width: 100% ;
+        border-top: 1px solid rgba(255,255,255,0.05) ;
+        
+
+    }
+
+    body .bda-nav-menu a {
+        display: block ;
+        padding: 1.25rem 1.5rem ;
+    }
+
+    body .bda-nav-menu.bda-menu-open {
+        max-height: 400px ;
+    }
+
+    /* Hemburg to close & turn into 'x' mark */
+    .bda-hamburger.bda-close-toggle span:nth-child(1) { transform: translateY(7.5px) rotate(45deg) ; }
+    .bda-hamburger.bda-close-toggle span:nth-child(2) { opacity: 0 ; }
+    .bda-hamburger.bda-close-toggle span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg) ; }
+}
+/* ======== BIHAR DRUGS AGENCY (BDA) - NEW HEADER FRAMEWORk ENDS  ========= */
+
+/* =====  BIHAR DRUGS AGENCY (BDA) - HOME PAGE/SHOP BACKGROUND IMAGE FRAMWORK STARTS======= */
+
+/* 1. Flex look for Eliments on Homepage */
+/* --- 2. Hero bda-global-nav Banner --- */
+.backgrounimage-page {
+    position: relative ;
+    /* Dark Background Shop Image */
+    background: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.85)), 
+                url('https://unsplash.com') no-repeat center center/cover ;
+    padding: 7rem 1.5rem ;
+    text-align: center ;
+    color: #ffffff ;
+    width: 100% ;
+    box-sizing: border-box ;
+}
+
+.bda-hero-title {
+    font-size: 3rem ;
+    font-weight: 800 ;
+    margin-bottom: 1rem ;
+    letter-spacing: -0.5px ;
+    line-height: 1.2 ;
+}
+
+.bda-hero-subtitle {
+    font-size: 1.25rem ;
+    max-width: 650px ;
+    margin: 0 auto 2.5rem ;
+    color: #d1d5db ;
+    line-height: 1.6 ;
+}
+
+.bda-call-btn {
+    display: inline-flex ;
+    align-items: center ;
+    background-color: #ffffff ;
+    color: rgb(156, 155, 155) ;
+    padding: 0.85rem 2.5rem ;
+    border-radius: 8px ;
+    font-weight: 700 ;
+    text-decoration: none ;
+    font-size: 1.1rem ;
+    box-shadow: 0 4px 15px rgba(255,255,255,0.1) ;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) ;
+}
+
+.bda-call-btn:hover {
+    transform: translateY(-3px) ;
+    box-shadow: 0 8px 25px rgba(255,255,255,0.2) ;
+    background-color: #f9fafb ;
+}
+.backgrounimage-page {
+    position: relative;
+    z-index: 1;
+    isolation: isolate; /*asure content don't get hedden before background */
+    min-height: 100vh;
+    margin: 0;
+
+    /* ---- Home Page Text  & other Icon settings---- */
+    display: flex;
+    flex-direction: column;   
+    justify-content: center;  
+    align-items: center;      
+    text-align: center;       
+    padding: 0 20px;          
+}
+
+/* 2. Pseudo-element will handle Background  image */
+.backgrounimage-page::before {
+    content: "";
+    position: absolute; /* will fix image on sceen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* image path */
+    background-image: url('assets/Shop\ Bakground\ image.png'); 
+    
+    /* making image fully responsive  */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* control opecity from here */
+    opacity: 0.2; 
+    
+    /* to push background  bihind the content */
+    z-index: -1; /* attenttion please keep it -1 so that background must be before content */
+}
+/**-------------- Css for text & button----------------------**/
+.bda-hero-title {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.bda-hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--bg-light);
+    max-width: 600px; /* Paragraph will be stricted and will not get wider */
+    margin-bottom: 10px;
+}
+
+.bda-call-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+
+.bda-call-btn:hover {
+    background-color: #ff4500; 
+    color: #ffffff;
+    transform: scale(1.05); /* slidly bigger effect on hover */
+}
+/* ===============SHOP BACKGROUND IMAGE FRAMWORK ENDS======================= */
+/* =====================About Page Starts=================================== */
+/* --- 1. Top Navbar Styling --- */
+      pav ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+        list-style: none;
+      }
+
+      pav a {
+        text-decoration: none;
+        color: var(--text-kain);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+
+      pav a:hover {
+        color: var(--text-light);
+      }
+
+      /* Responsive Layout Framework */
+      .kain-container {
+        margin: 60px auto;
+        display: grid;
+        grid-template-columns: 1fr; /* Mobile view: 1 Column */
+        gap: 40px;
+        align-items: start;
+      }
+
+      /* Desktop View Upgrade (min-width: 868px) */
+      @media (min-width: 868px) {
+        .kain-container {
+          grid-template-columns: 1.1fr 0.9fr; /* Side-by-side Layout */
+          gap: 80px;
+        }
+      }
+
+      /* Left Column Text Styles */
+      .thecontent-section {
+        background-color: var(--bg-light);
+        padding-right: 0;
+        margin-left: var(--main-margin-left);
+        margin-right: var(--main-margin-right);
+      }
+
+      @media (min-width: 868px) {
+        .thecontent-section {
+          padding-right: 40px;
+        }
+      }
+
+      theh1 {
+        font-family: var(--font-serif);
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        font-weight: 400;
+        margin-bottom: 10px;
+        color: var(--text-kain);
+      }
+
+      .pagline {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        color: var(--bda-global-nav-color);
+        margin-bottom: 35px;
+        font-style: italic;
+      }
+      .pagline-company{
+        font-family: var(--font-serif);
+        font-size: 1rem;
+        color: var(--text-light);
+        margin-bottom: 0px;
+        font-style: italic;
+
+      }
+
+      .bio-text p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin-bottom: 25px;
+        text-align: justify;
+      }
+
+      .tlients-section {
+        margin-top: 40px;
+        border-top: 1px solid var(--border-color);
+        padding-top: 30px;
+      }
+
+      .tlients-section h2 {
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+        color: var(--text-kain);
+      }
+
+      .tlients-section p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1;
+      }
+
+      /* Right Column timage Styles */
+      .ttocial {
+        width: 100%;
+      }
+
+      .trofile-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        filter: grayscale(100%); /* timage looks premium Black & White */
+        object-fit: cover;
+      }
+
+      /* Instagram/tocial Icon Placeholder */
+      .tocial-link {
+        display: inline-block;
+        margin-top: 40px;
+        color: var(--text-kain);
+        text-decoration: none;
+        font-size: 1.1rem;
+        border: 1px solid var(--text-kain);
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 26px;
+      } 
+/* ===============About section self & Shop Page Ends===================== */
+ /*-- ===============About Core values Page starts=========================*/
+/* --- Google Fonts Import --- */
+.body{
+     margin-left: var(--main-margin-left);
+  margin-right: var(--main-margin-right);
+}
+@import url('https://googleapis.com');
+/* --- About Section Intro --- */
+.about-section {
+    padding: 80px 0;
+   background-color: var(--bg-light);
+    margin-left: var(--main-margin-left);
+    margin-right: var(--main-margin-right);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Image Component */
+.about-img-box {
+    position: relative;
+}
+
+.about-img-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    display: block;
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(255, 69, 0, 0.3);
+    text-align: center;
+}
+
+.experience-badge h3 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.experience-badge p {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Content Component */
+.sub-title {
+    color: var(--accent-color);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.about-content h2 {
+    font-size: 38px;
+    color: var(--primary-color);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 20px;
+     margin-left: var(--main-margin-left);
+  margin-right: var(--main-margin-right);
+}
+
+.highlight-text {
+    font-size: 18px;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 16px;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 15px;
+}
+
+.about-content p {
+    color: var(--text-light);
+    margin-bottom: 24px;
+    font-size: 15px;
+}
+
+/* Features Component */
+.feature-list {
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.feature-item i {
+    color: var(--accent-color);
+    font-size: 18px;
+}
+
+/* Button */
+.premium-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 14px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.premium-btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 69, 0, 0.2);
+}
+
+/* --- Core Values Section --- */
+.values-section {
+    margin-top: 100px;
+    padding: 60px 40px;
+    background-color: var(--bg-light);
+    border-radius: 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    color: var(--primary-color);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.value-card {
+    background-color: var(--white);
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.value-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(26, 34, 56, 0.06);
+    border-color: rgba(255, 69, 0, 0.1);
+}
+
+.value-card .icon-box {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 69, 0, 0.08);
+    color: var(--accent-color);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+
+.value-card h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-bottom: 14px;
+    font-weight: 600;
+}
+
+.value-card p {
+    color: var(--text-light);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* --- Responsive Media Queries --- */
+
+/* Tablets (1024px tak) */
+@media (max-width: 1024px) {
+    .about-grid {
+        gap: 40px;
+    }
+    .about-content h2 {
+        font-size: 32px;
+    }
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns mesh layout */
+    }
+}
+
+/* Medium Mobile & Small Tablets (768px tak) */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 50px 0;
+    }
+    .about-grid {
+        grid-template-columns: 1fr; /* Image upar aur text niche */
+        gap: 50px;
+    }
+    .about-img-box {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    .experience-badge {
+        bottom: -10px;
+        right: -10px;
+        padding: 16px;
+    }
+    .values-grid {
+        grid-template-columns: 1fr; /* Single column stack */
+    }
+    .values-section {
+        padding: 40px 20px;
+    }
+}
+
+/* Small Mobile (480px tak) */
+@media (max-width: 480px) {
+    .about-content h2 {
+        font-size: 26px;
+    }
+    .highlight-text {
+        font-size: 16px;
+    }
+    .experience-badge h3 {
+        font-size: 24px;
+    }
+}
+ /*-- ===============About Core values Page Ends=========================--*/
+ /*-- ===============About Brands we deal with page starts==================*/
+
+/* --- Brands Section Styles --- */
+.brands-section {
+    padding: 100px 0;
+    background-color: var(--bg-light);
+     margin-left: var(--main-margin-left);
+  margin-right: var(--main-margin-right);
+}
+
+.brands-bda-global-nav {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+}
+
+.brands-bda-global-nav h2 {
+    font-size: 36px;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.heading-line {
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+.section-desc {
+    color: var(--text-light);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Brands Grid Engine */
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Desktop pe 3 Columns Grid */
+    gap: 30px;
+}
+
+/* Brand Individual Premium Card */
+.brand-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 35px 25px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Grid Card Hover Layer */
+.brand-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(26, 34, 56, 0.08);
+    border-color: rgba(255, 69, 0, 0.2);
+}
+
+/* Image Wrapper System with Smooth Grayscale effect */
+.logo-wrapper {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.logo-wrapper img {
+    max-width: 80%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%); /* Default me black/white base layer */
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+/* Hover aane par logo original color me convert hoga */
+.brand-card:hover .logo-wrapper img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Brand Details Text styling */
+.brand-info h4 {
+    color: var(--primary-color);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.brand-info p {
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+/* Bottom CTA Layer */
+.brands-cta {
+    text-align: center;
+    margin-top: 60px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 40px;
+}
+
+.brands-cta p {
+    font-size: 16px;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 12px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* --- Responsive Media Rules --- */
+
+/* Medium Devices (Tablets 992px tak) */
+@media (max-width: 992px) {
+    .brands-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 Columns layer */
+        gap: 20px;
+    }
+    .brands-bda-global-nav h2 {
+        font-size: 30px;
+    }
+}
+
+/* Mobile Devices (768px tak) */
+@media (max-width: 768px) {
+    .brands-section {
+        padding: 60px 0;
+    }
+    .brands-grid {
+        grid-template-columns: 1fr; /* Single column layout stack */
+    }
+    .brand-card {
+        padding: 25px 20px;
+    }
+    .logo-wrapper {
+        height: 60px;
+    }
+}
+ /*-- ===============About Brands we deal with page starts==================*/
+  /*-- ======================Reach Us page Starts ==========================--*/
+.reach-section {
+    padding: 100px 0;
+    background-color: var(--bg-light);
+    margin-left: var(--main-margin-left);
+  margin-right: var(--main-margin-right);
+}
+
+/* bda-global-nav Text Align Engine */
+.reach-bda-global-nav {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+}
+
+.reach-bda-global-nav h2 {
+    font-size: 36px;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.heading-line {
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+.reach-bda-global-nav p {
+    color: var(--text-light);
+    font-size: 16px;
+}
+
+/* Dual Column Layout Core Engine Setup */
+.reach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* Info Side Panel Cards Wrapper */
+.info-side {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.info-card {
+    background-color: var(--white);
+    padding: 24px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: var(--transition-smooth);
+}
+
+.info-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 15px 35px rgba(26, 34, 56, 0.06);
+}
+
+.icon-circle {
+    width: 55px;
+    height: 55px;
+    background-color: rgba(255, 69, 0, 0.08);
+    color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.info-text h4 {
+    color: var(--primary-color);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.info-text .main-link a {
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.info-text .main-link a:hover {
+    color: var(--accent-color);
+}
+
+.info-text span, .info-text .address-p {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+/* Map Card Component Style */
+.map-box {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* Right Side Premium Panel Layout Details */
+.form-side {
+    background-color: var(--white);
+    padding: 45px 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(26, 34, 56, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.form-side h3 {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.form-side p {
+    color: var(--text-light);
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+/* Floating Interactive Input Box Engine Custom Style CSS */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 16px 16px 16px 20px;
+    border: 1px solid #cbd5e1;
+    background-color: transparent;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    color: var(--text-dark);
+    transition: var(--transition-smooth);
+}
+
+/* Text area row alignment setting adjustments */
+.input-group textarea {
+    resize: none;
+}
+
+/* Floating Label text base positioning setup code */
+.input-group label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--white);
+    padding: 0 6px;
+    color: #94a3b8;
+    font-size: 15px;
+    pointer-events: auto;
+    transition: var(--transition-smooth);
+}
+
+.input-group textarea ~ label {
+    top: 25px;
+}
+
+/* Floating focus activation trigger mechanism */
+.input-group input:focus, .input-group textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(255, 69, 0, 0.1);
+}
+
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group textarea:focus ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label {
+    top: 0;
+    font-size: 12px;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* Error Dynamic System CSS Configuration setup layout */
+.input-group.invalid-trigger input, .input-group.invalid-trigger textarea {
+    border-color: var(--error-red);
+}
+
+.input-group.invalid-trigger label {
+    color: var(--error-red);
+}
+
+.error-msg {
+    display: none;
+    color: var(--error-red);
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 5px;
+    padding-left: 5px;
+}
+
+.input-group.invalid-trigger .error-msg {
+    display: block;
+}
+
+/* Submit Action Button Mechanical Animation Engine Layer */
+.submit-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: var(--transition-smooth);
+}
+
+.submit-btn:hover {
+    background-color: var(--accent-color);
+    box-shadow: 0 10px 25px rgba(255, 69, 0, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Status Alert Style System Boxes CSS script */
+.status-alert {
+    display: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.status-alert.success {
+    display: block;
+    background-color: rgba(34, 197, 94, 0.1);
+    color: var(--success-green);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+/* --- High Performance Responsive Queries Engine Layout rules --- */
+
+/* Tablet Optimization Layout (992px Screen width limit threshold scale) */
+@media (max-width: 992px) {
+    .reach-grid {
+        grid-template-columns: 1fr; /* Switch to vertical block stacking structure layout */
+        gap: 40px;
+    }
+    .form-side {
+        padding: 35px 30px;
+    }
+}
+
+/* Mobile Screen optimization handling rules structure (768px thresholds) */
+@media (max-width: 768px) {
+    .reach-section {
+        padding: 60px 0;
+    }
+    .reach-bda-global-nav h2 {
+        font-size: 28px;
+    }
+    .info-card {
+        padding: 18px;
+        gap: 15px;
+    }
+    .icon-circle {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+    }
+}
+  /*-- ======================Reach Us page Ends ==========================--*/
+  /*==========Floating WhatsApp & Map Button Starts==============*/
+  body {
+    background-color: var(--auth-bg-light);
+    color: var(--auth-orange);
+    line-height: 1.6;
+}
+  .floating-contact-panel {
+    position: fixed;
+    bottom: 25px;       /* Screen ke bottom se distance */
+    right: 25px;        /* Screen ke right side se distance */
+    display: flex;
+    flex-direction: column; /* Buttons ko ek ke upar ek rakhne ke liye */
+    gap: 15px;          /* Dono buttons ke beech ka gap */
+    z-index: 9999;      /* Taki ye pure design ke upar floating dikhe */
+}
+
+/* Base Floating Button Style */
+.floating-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--auth-bg-light);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+/* Smooth Hover Animation */
+.floating-btn:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* WhatsApp Theme Colors */
+.float-whatsapp {
+    background-color: #25D366;
+     width: 50px;
+        height: 50px;
+}
+.float-whatsapp:hover {
+    background-color: #20ba5a;
+}
+
+/* Call Theme Colors (Red style matching your 'Call Now' design) */
+.float-call {
+    background-color: #25D366; /* Isko aap picture ke accordance dark red ya orange set kar sakte hain */
+}
+.float-call:hover {
+    background-color: #25D366;
+}
+
+/* Mobile Responsive Optimization */
+@media (max-width: 480px) {
+    .floating-contact-panel {
+        bottom: 15px;
+        right: 15px;
+        gap: 10px;
+    }
+    
+    .floating-btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .floating-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+  /*==========Floating WhatsApp & Map starts==============*/
+   /*------Map Popup css Starts-------*/
+      /* डिफ़ॉल्ट रूप से डेस्कटॉप पर इसे पूरी तरह छुपा दें */
+.mobile-map-btn, .map-modal {
+    display: none;
+}
+
+/* सिर्फ मोबाइल और टैबलेट स्क्रीन (991px से छोटी) के लिए */
+@media screen and (max-width: 410px) {
+    
+    /* 1. फ्लोटिंग बटन जो WhatsApp/Call के ऊपर दिखेगा */
+    .mobile-map-btn {
+        display: block; /* मोबाइल पर शो करें */
+        position: fixed;
+        bottom: 85px;   /* WhatsApp और Call बटन के JUST UPAR रखने के लिए दूरी */
+        right: 17px;     /* दाईं तरफ (Right Side) पिन करने के लिए */
+        width: 70px;     /* बटन का साइज */
+        height: 70px;
+        z-index: 2000;    /* ताकि यह बाकी कंटेंट के ऊपर तैरता रहे */
+        background: var(--auth-bg-light);
+        border-radius: 25px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        padding: 5px;
+        transition: transform 0.2s ease;  
+        width: 50px;
+        height: 50px;
+        background: var(--auth-bg-light);
+        border-radius: 50% 50% 50% 0;
+        transform: rotate(-45deg);
+        display: flex;
+        justify-content: center;
+        transition: transform 0.2s ease;   
+        align-items: center; 
+        border-color: var(--accent-color);
+    }
+    /* बटन के अंदर आपकी भेजी हुई मैप इमेज सेट करना */
+    .mobile-map-btn img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* इमेज को डिब्बे में फिट रखेगा */
+        border-radius: 8px;
+    }
+
+    .mobile-map-btn:active {
+        transform: scale(0.9); /* क्लिक करने पर हल्का दबेगा */
+    }
+
+    /* 2. पॉपअप (Modal) डिजाइन - जब यूजर बटन पर क्लिक करेगा */
+    .map-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--accent-color); /* पीछे का बैकग्राउंड डार्क करेगा */
+        z-index: 2000; /* सबसे ऊपर दिखेगा */
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .map-modal-content {
+        position: relative;
+        background-color: var(--auth-bg-light);
+        padding: 10px;
+        border-radius: 12px;
+        max-width: 90%;
+        max-height: 85vh;
+        text-align: center;
+    }
+
+    .map-modal-content img {
+        width: 100%;
+        height: auto;
+        max-height: 75vh;
+        object-fit: contain;
+    }
+
+    /* क्लोज (X) बटन */
+    .close-modal {
+        position: absolute;
+        bottom: -35px;
+        right: -7px;
+        color: var(--auth-bg-light);
+        font-size: 35px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
+/*==========Floating WhatsApp & Map Ends==============*/
+
+/*===========testimonial/what clints says about us page Starts==========*/
+/* --- Global Theme Sync (Agar pehle se bani hai to duplicate na karein) --- */
+.reviews-section {
+    padding: 100px 0;
+    background-color: var(--white);
+    margin-left: var(--main-margin-left);
+  margin-right: var(--main-margin-right);
+}
+
+/* Header Component */
+.reviews-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+}
+
+.reviews-header h2 {
+    font-size: 36px;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.heading-line {
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+.reviews-header p {
+    color: var(--text-light);
+    font-size: 16px;
+}
+
+/* Filter Controllers Layout Buttons styling */
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 20px rgba(26, 34, 56, 0.15);
+}
+
+.filter-btn.active {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 8px 20px rgba(255, 69, 0, 0.2);
+}
+
+/* Multi-Column Masonry Style Grid Setup */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Individual Review Card */
+.review-card {
+    background-color: var(--bg-light);
+    border-radius: 16px;
+    padding: 35px 30px;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition-smooth);
+    opacity: 1;
+    transform: scale(1);
+}
+
+.review-card:hover {
+    background-color: var(--white);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(26, 34, 56, 0.06);
+    border-color: var(--border-color);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.quote-icon i {
+    color: rgba(255, 69, 0, 0.15);
+    font-size: 32px;
+}
+
+.stars i {
+    color: var(--gold);
+    font-size: 14px;
+    margin-left: 2px;
+}
+
+.review-text {
+    color: var(--text-dark);
+    font-size: 15px;
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* Client Profile Metadata System */
+.client-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.avatar-box {
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+/* Alternate avatar boxes icon styling */
+.avatar-box i {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.client-details h4 {
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 2px;
+}
+
+.client-details span {
+    color: var(--text-light);
+    font-size: 13px;
+    display: block;
+}
+
+/* Smooth Fade and Filter Transition Classes for JavaScript */
+.review-card.hide-card {
+    display: none;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* --- High Performance Responsive Engine Layout rules --- */
+
+/* Tablets Screens Layout (992px Screen sizes threshold limit) */
+@media (max-width: 992px) {
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr); /* Switch to 2 columns layout */
+        gap: 20px;
+    }
+    .reviews-header h2 {
+        font-size: 30px;
+    }
+}
+
+/* Mobile Devices Optimization Rules (768px threshold limit) */
+@media (max-width: 768px) {
+    .reviews-section {
+        padding: 60px 0;
+    }
+    .filter-controls {
+        gap: 10px;
+        margin-bottom: 35px;
+    }
+    .filter-btn {
+        padding: 8px 18px;
+        font-size: 13px;
+    }
+    .reviews-grid {
+        grid-template-columns: 1fr; /* 1 Column single stack layer structure */
+    }
+    .review-card {
+        padding: 25px;
+    }
+}
+/*============testimonial/what clints says about us page Ends===========*/
+/* ==========================================================================
+                        Login Page section Css Sarts 
+   ========================================================================== */
+:root {
+    --auth-bg-light: #f8fafc;
+    --auth-white: #ffffff;
+    --auth-navy: #0f172a;       
+    --auth-orange: #ff4500;     
+    --auth-text-dark: #1e293b;
+    --auth-text-muted: #64748b;
+    --auth-border: #e2e8f0;
+    --auth-font: 'Plus Jakarta Sans', sans-serif;
+}
+/*================================*/
+/* ==========================================================================
+   🔐 BDA PLATFORM - SECURE MODAL BACKDROP & ANIMATION
+   ========================================================================== */
+
+/* Main Full Screen Dark Overlay */
+.auth-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(0, 0, 0, 0.75) !important; 
+    display: none; /* JS isko handle karega display block/flex se */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999999 !important; /* Hamburger aur Header se upar dikhne ke liye */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Modal Open hone par activation state */
+.auth-overlay.open-modal {
+    display: flex !important;
+    opacity: 1 !important;
+}
+
+/* White Core Interaction Box Container */
+.auth-card {
+    position: relative !important;
+    background: #ffffff !important;
+    display: flex !important;
+    z-index: 10000000 !important; /* Sabse top interactive area */
+    pointer-events: auto !important; /* Input typing aur buttons chalu rakhega */
+}
+
+/* Premium Absolute Floating X Close Button Configuration */
+.close-modal-btn {
+    position: absolute !important;
+    top: 15px !important;
+    right: 20px !important;
+    background: transparent !important;
+    border: none !important;
+    font-size: 38px !important;
+    line-height: 1 !important;
+    color: #333333 !important;
+    cursor: pointer !important;
+    display: block !important;
+    z-index: 20000000 !important; /* Sabhi layouts, grids aur text fields ke upar text dynamic cross layer */
+    pointer-events: auto !important; 
+    padding: 5px !important;
+}
+
+.close-modal-btn:hover {
+    color: #ff3333 !important;
+}
+
+/* --- Dynamic View Management System --- */
+.form-panel .sign-up-box {
+    display: none; /* Default me Sign-In open rahega */
+}
+
+/* Active Sign-up Switch State classes trigger rule */
+.auth-card.show-signup .sign-in-box {
+    display: none !important;
+}
+
+.auth-card.show-signup .sign-up-box {
+    display: block !important;
+}
+
+/* Form panel inputs styling focus correction rules */
+.input-container input {
+    pointer-events: auto !important;
+    user-select: text !important;
+}
+
+
+/* Main black background layout overlay *
+.auth-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); 
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 999999 !important; /* Subse upar dikhega *
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: auto !important; /* Click hone dega *
+}
+
+.auth-overlay.open-modal {
+    display: flex !important;
+    opacity: 1;
+}
+
+/* White form card box *
+.auth-card {
+    position: relative;
+    pointer-events: auto !important; /* Card ke andar sab chalega *
+    z-index: 1000000 !important;
+}
+
+/* Shuru me Sign-Up box chupa rahega *
+.form-panel .sign-up-box {
+    display: none;
+}
+
+/* Jab active class lagegi tab Sign-Up dikhega aur Sign-In chhupega *
+.auth-card.show-signup .sign-in-box {
+    display: none;
+}
+.auth-card.show-signup .sign-up-box {
+    display: block !important;
+}
+
+/*=================================*/
+/* --- Modal Overlay Background --- *
+.auth-overlay {
+    position: fixed ;
+    top: 0 ;
+    left: 0 ;
+    width: 100% ;
+    height: 100% ;
+    background-color: rgba(15, 23, 42, 0.6) ; 
+    backdrop-filter: blur(8px) ; 
+    -webkit-backdrop-filter: blur(8px) ;
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+    z-index: 99999 ; /* पूरी वेबसाइट के ऊपर रखने के लिए *
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease-in-out ;
+    font-family: var(--auth-font), sans-serif ;
+    box-sizing: border-box ;
+}
+/*==================================================================*/
+/*         JAB CRIPT IS CLASS KO ADD KAREGI TAB MODAL DIKHEGA */
+/*===================================================================*/
+/* 🔥 JAB JAVASCRIPT IS CLASS KO ADD KAREGI TAB MODAL DIKHEGA *
+.auth-overlay.open-modal {
+    display: flex !important;
+    opacity: 1;
+}
+    
+/*===================================================================*/
+/*         JAB SCRIPT IS CLASS KO ADD KAREGI TAB MODAL DIKHEGA */
+/*===================================================================
+.auth-overlay * {
+    box-sizing: border-box ;
+}
+
+/* Open Popup State */
+.auth-overlay.open-popup {
+    opacity: 1 ;
+    pointer-events: auto ;
+}
+
+/* --- Core Auth Card Layout --- */
+.auth-overlay .auth-card {
+    background: var(--auth-white) ;
+    width: 1000px ;
+    max-width: 95% ;
+    height: 650px ;
+    border-radius: 20px ;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15) ;
+    border: 1px solid var(--auth-border) ;
+    display: flex ;
+    overflow: hidden ;
+    position: relative ;
+    transform: translateY(30px) scale(0.95) ;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) ;
+}
+
+.auth-overlay.open-popup .auth-card {
+    transform: translateY(0) scale(1) ;
+}
+
+/* --- Left Side: Brand Panel --- */
+.auth-overlay .brand-panel {
+    flex: 1.1 ;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) ;
+    color: var(--auth-white) ;
+    padding: 60px ;
+    display: flex ;
+    align-items: center ;
+    position: relative ;
+    overflow: hidden ;
+    text-align: left ;
+}
+
+.auth-overlay .brand-panel::before {
+    content: '' ;
+    position: absolute ;
+    width: 150px ;
+    height: 150px ;
+    background: var(--auth-orange) ;
+    border-radius: 30px ;
+    top: -50px ;
+    left: -50px ;
+    opacity: 0.8 ;
+    transform: rotate(45deg) ;
+}
+
+.auth-overlay .brand-content {
+    position: relative ;
+    z-index: 5 ;
+}
+
+.auth-overlay .tagline {
+    color: var(--auth-orange) ;
+    font-size: 0.85rem ;
+    font-weight: 700 ;
+    letter-spacing: 1.5px ;
+    text-transform: uppercase ;
+    display: block ;
+    margin-bottom: 16px ;
+}
+
+.auth-overlay .brand-panel h2 {
+    font-size: 2.2rem ;
+    font-weight: 700 ;
+    line-height: 1.3 ;
+    margin: 0 0 20px 0 ;
+    color: var(--auth-white) ;
+}
+
+.auth-overlay .brand-panel p {
+    color: #94a3b8 ;
+    font-size: 0.95rem ;
+    line-height: 1.6 ;
+    margin: 0 0 40px 0 ;
+}
+
+.auth-overlay .trust-features {
+    display: flex ;
+    flex-direction: column ;
+    gap: 16px ;
+}
+
+.auth-overlay .feature-item {
+    display: flex ;
+    align-items: center ;
+    gap: 12px ;
+}
+
+.auth-overlay .feature-item i {
+    color: var(--auth-orange) ;
+    font-size: 1.1rem ;
+}
+
+.auth-overlay .feature-item span {
+    font-size: 0.9rem ;
+    color: #cbd5e1 ;
+}
+
+/* --- Right Side: Form Panel --- */
+.auth-overlay .form-panel {
+    flex: 1 ;
+    position: relative ;
+    background: var(--auth-white) ;
+}
+
+.auth-overlay .form-box {
+    position: absolute ;
+    top: 0 ;
+    left: 0 ;
+    width: 100% ;
+    height: 100% ;
+    padding: 60px ;
+    display: flex ;
+    flex-direction: column ;
+    justify-content: center ;
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.4s ease ;
+    background: var(--auth-white) ;
+}
+
+.auth-overlay .sign-in-box {
+    opacity: 1 ;
+    transform: translateX(0) ;
+    z-index: 5 ;
+}
+
+.auth-overlay .sign-up-box {
+    opacity: 0 ;
+    transform: translateX(100%) ;
+    z-index: 1 ;
+}
+
+.auth-overlay .auth-card.show-signup .sign-in-box {
+    opacity: 0 ;
+    transform: translateX(-100%) ;
+    z-index: 1 ;
+}
+
+.auth-overlay .auth-card.show-signup .sign-up-box {
+    opacity: 1 ;
+    transform: translateX(0) ;
+    z-index: 5 ;
+}
+
+.auth-overlay .panel-title {
+    font-size: 1.8rem ;
+    font-weight: 700 ;
+    color: var(--auth-navy) ;
+    margin: 0 0 6px 0 ;
+    text-align: left ;
+}
+
+.auth-overlay .panel-subtitle {
+    font-size: 0.9rem ;
+    color: var(--auth-text-muted) ;
+    margin: 0 0 30px 0 ;
+    text-align: left ;
+}
+
+/* --- Input Fields --- */
+.auth-overlay .input-container {
+    border: 1px solid var(--auth-border) ;
+    background: #f8fafc ;
+    border-radius: 10px ;
+    padding: 0 16px ;
+    margin-bottom: 16px ;
+    display: flex ;
+    align-items: center ;
+    width: 100% ;
+}
+
+.auth-overlay .input-container:focus-within {
+    border-color: var(--auth-navy) ;
+    background: var(--auth-white) ;
+    box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08) ;
+}
+
+.auth-overlay .input-container i {
+    color: var(--auth-text-muted) ;
+    font-size: 1rem ;
+    width: 25px ;
+    margin: 0 ;
+    padding: 0 ;
+}
+
+.auth-overlay .input-container input {
+    background: transparent ;
+    border: none ;
+    outline: none ;
+    width: 100% ;
+    padding: 14px 4px ;
+    font-family: inherit ;
+    font-size: 0.95rem ;
+    color: var(--auth-text-dark) ;
+    box-shadow: none ;
+}
+
+.auth-overlay .toggle-mask {
+    cursor: pointer ;
+    padding: 5px ;
+}
+
+/* --- Options & Buttons --- */
+.auth-overlay .form-options {
+    display: flex ;
+    justify-content: space-between ;
+    align-items: center ;
+    font-size: 0.85rem ;
+    margin-bottom: 24px ;
+    width: 100% ;
+}
+
+.auth-overlay .remember-me {
+    display: flex ;
+    align-items: center ;
+    gap: 8px ;
+    cursor: pointer ;
+    color: var(--auth-text-dark) ;
+    margin: 0 ;
+}
+
+.auth-overlay .forgot-link {
+    color: var(--auth-orange) ;
+    text-decoration: none ;
+    font-weight: 500 ;
+}
+
+.auth-overlay .forgot-link:hover {
+    text-decoration: underline ;
+}
+
+.auth-overlay .terms-label {
+    display: flex ;
+    align-items: flex-start ;
+    gap: 8px ;
+    font-size: 0.85rem ;
+    color: var(--auth-text-muted) ;
+    margin: 0 0 24px 0 ;
+    cursor: pointer ;
+}
+
+.auth-overlay .action-btn-prime {
+    background-color: var(--auth-navy) ;
+    color: var(--auth-white) ;
+    border: none ;
+    outline: none ;
+    width: 100% ;
+    padding: 15px ;
+    border-radius: 10px ;
+    font-size: 0.95rem ;
+    font-weight: 600 ;
+    cursor: pointer ;
+    transition: background-color 0.2s, transform 0.1s ;
+}
+
+.auth-overlay .action-btn-prime:hover {
+    background-color: #1e293b ;
+}
+
+.auth-overlay .action-btn-prime.alternate-color {
+    background-color: var(--auth-orange) ;
+}
+
+.auth-overlay .action-btn-prime.alternate-color:hover {
+    background-color: #e03d00 ;
+}
+
+.auth-overlay .switch-notice {
+    text-align: center ;
+    margin-top: 24px ;
+    font-size: 0.9rem ;
+    color: var(--auth-text-muted) ;
+}
+
+.auth-overlay .trigger-switch {
+    color: var(--auth-navy) ;
+    font-weight: 600 ;
+    cursor: pointer ;
+    text-decoration: underline ;
+}
+
+/* --- Premium Close Button --- */
+.auth-overlay .close-modal-btn {
+    position: absolute ;
+    top: 20px ;
+    right: 25px ;
+    background: transparent ;
+    border: none ;
+    outline: none ;
+    font-size: 2.5rem ;
+    color: var(--auth-text-muted) ;
+    cursor: pointer ;
+    z-index: 150 ;
+    transition: color 0.2s, transform 0.2s ;
+    line-height: 1 ;
+    margin: 0 ;
+    padding: 0 ;
+}
+
+.auth-overlay .close-modal-btn:hover {
+    color: var(--auth-orange) ;
+    transform: rotate(90deg) ;
+}
+/*===============file upload section===============================*/
+/* ==========================================================================
+   ISOLATED AUTH PROMO GRIDS & FILE UPLOADER INFRASTRUCTURE
+   ========================================================================== */
+
+/* --- Lower Green Area Promo Section Layout --- */
+.auth-promo-section {
+    /*background: #ffffff;
+    border: 1px solid var(--auth-border);
+    border-radius: 16px;
+    padding: 40px;
+    margin: 40px 0;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.03);
+    font-family: var(--auth-font), sans-serif;*/
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 40px;
+    margin: 40px 0;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.03);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+/* --- Left Side Typography Rules --- */
+.pharmacist-list-wrapper {
+    flex: 1.2;
+    text-align: left;
+}
+
+.pharmacist-main-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: #1e293b;
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+}
+
+.pharmacist-custom-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pharmacist-custom-list li {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 4px;
+}
+
+/* स्क्रीनशॉट की तरह कुछ लाइनों को इटैलिक करने के लिए */
+.pharmacist-custom-list li.italic-item {
+    font-style: italic;
+    color: #64748b;
+}
+/* ==========================================================================
+   UPDATED DUAL ACTION BUTTONS (SIDE-BY-SIDE INTEGRATION)
+   ========================================================================== */
+/* ==========================================================================
+   UPDATED DUAL ACTION BUTTONS (VERTICAL STACKED - AS REQUESTED)
+   ========================================================================== */
+.pharmacist-promo-section {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 40px;
+    margin: 40px 0;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.03);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* दोनों तरफ के ब्लॉक्स को बीच में अलाइन रखने के लिए */
+    gap: 40px;
+}
+
+.pharmacist-list-wrapper {
+    flex: 1.2;
+    text-align: left;
+}
+
+.pharmacist-main-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: #1e293b;
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+}
+
+.pharmacist-custom-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pharmacist-custom-list li {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 4px;
+}
+
+.pharmacist-custom-list li.italic-item {
+    font-style: italic;
+    color: #64748b;
+}
+
+/* --- Green Mark Area Fixed: Vertical Stack Layout --- */
+.pharmacist-actions-box {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column; /* बटन्स को ऊपर-नीचे (Vertical) करने के लिए */
+    gap: 14px;            /* दोनों बटन्स के बीच का परफेक्ट स्पेस */
+    width: 100%;
+    max-width: 280px;      /* बटन्स की चौड़ाई को कंट्रोल करने के लिए उत्तम साइज */
+}
+
+.pharmacist-actions-box button {
+    font-family: inherit;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;           /* दोनों बटन्स को एक समान चौड़ाई देने के लिए */
+    white-space: nowrap;
+    outline: none;
+}
+
+.pharmacist-actions-box .promo-btn-main {
+    background-color: #0f172a; /* Premium Navy Blue */
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
+}
+
+.pharmacist-actions-box .promo-btn-main:hover {
+    background-color: #1e293b;
+    transform: translateY(-1px);
+}
+
+.pharmacist-actions-box .promo-btn-sub {
+    background-color: transparent;
+    color: #ff4500; /* Custom Corporate Orange */
+    border: 1px solid #ff4500;
+}
+
+.pharmacist-actions-box .promo-btn-sub:hover {
+    background-color: rgba(255, 69, 0, 0.05);
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   MOBILE & SMALL SCREEN OVERRIDE (SAFE MOBILITY)
+   ========================================================================== */
+@media (max-width: 850px) {
+    .pharmacist-promo-section {
+        flex-direction: column ;
+        padding: 30px 20px ;
+        gap: 25px ;
+    }
+    
+    .pharmacist-list-wrapper {
+        width: 100% ;
+        text-align: center ;
+    }
+    
+    .pharmacist-main-title {
+        text-align: center ;
+    }
+
+    .pharmacist-actions-box {
+        max-width: 100% ; /* मोबाइल पर बटन्स पूरे स्क्रीन की चौड़ाई में फिट होंगे */
+    }
+}
+
+
+/* --- Right Side Action Buttons --- *
+.pharmacist-actions-box {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 280px;
+}
+
+.pharmacist-actions-box button {
+    font-family: inherit;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    outline: none;
+}
+
+.pharmacist-actions-box .promo-btn-main {
+    background-color: #0f172a; /* Navy Blue Button *
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
+}
+
+.pharmacist-actions-box .promo-btn-main:hover {
+    background-color: #1e293b;
+    transform: translateY(-1px);
+}
+
+.pharmacist-actions-box .promo-btn-sub {
+    background-color: transparent;
+    color: #ff4500; /* Orange Text Button *
+    border: 1px solid #ff4500;
+}
+
+.pharmacist-actions-box .promo-btn-sub:hover {
+    background-color: rgba(255, 69, 0, 0.05);
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE CONTEXT OVERRIDE
+   ========================================================================== *
+@media (max-width: 850px) {
+    .pharmacist-promo-section {
+        flex-direction: column ;
+        padding: 30px 20px ;
+        gap: 25px ;
+    }
+    
+    .pharmacist-list-wrapper {
+        width: 100% ;
+        text-align: center ;
+    }
+    
+    .pharmacist-main-title {
+        text-align: center ;
+    }
+
+    .pharmacist-actions-box {
+        max-width: 100% ;
+    }
+
+}*/
+
+.promo-content-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 35px;
+}
+
+.promo-info-card {
+    text-align: left;
+}
+
+.promo-icon {
+    font-size: 1.6rem;
+    color: var(--auth-orange);
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.promo-info-card h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--auth-navy);
+    margin-bottom: 10px;
+}
+
+.promo-info-card p {
+    font-size: 0.9rem;
+    color: var(--auth-text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.promo-info-card p strong {
+    color: var(--auth-text-dark);
+}
+
+.promo-actions-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    border-top: 1px solid var(--auth-border);
+    padding-top: 30px;
+}
+
+.promo-actions-row button {
+    font-family: inherit;
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    outline: none;
+}
+
+.promo-btn-main {
+    background-color: var(--auth-navy);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+.promo-btn-main:hover {
+    background-color: #1e293b;
+    transform: translateY(-1px);
+}
+
+.promo-btn-sub {
+    background-color: transparent;
+    color: var(--auth-orange);
+    border: 1px solid var(--auth-orange);
+}
+
+.promo-btn-sub:hover {
+    background-color: rgba(255, 69, 0, 0.05);
+    transform: translateY(-1px);
+}
+
+/* --- Premium File Uploader Box Styling --- */
+.upload-zone-wrapper {
+    margin-bottom: 16px;
+    text-align: left;
+    width: 100%;
+}
+
+.upload-zone-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--auth-text-dark);
+    margin-bottom: 6px;
+    display: block;
+}
+
+.file-upload-zone {
+    border: 2px dashed var(--auth-border);
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 0px 0px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.file-upload-zone:hover {
+    border-color: var(--auth-orange);
+    background: rgba(255, 69, 0, 0.01);
+}
+
+.upload-zone-icon {
+    font-size: 1.6rem;
+    color: var(--auth-text-muted);
+}
+
+.upload-zone-text {
+    font-size: 0.85rem;
+    color: var(--auth-text-muted);
+}
+
+.upload-highlight {
+    color: var(--auth-navy);
+    font-weight: 600;
+}
+
+.upload-specs {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+.selected-files-indicator {
+    font-size: 0.78rem;
+    color: var(--auth-orange);
+    margin-top: 6px;
+    font-weight: 500;
+    word-break: break-all;
+}
+
+/* ==========================================================================
+   ULTIMATE MOBILE RESPONSIVE MATRIX (100% FIXED & INTERNAL SCROLL ACTIVE)
+   ========================================================================== */
+@media (max-width: 850px) {
+    /* Lower Promo Section Responsive Layout */
+    .promo-content-grid {
+        grid-template-columns: 1fr ;
+        gap: 20px ;
+    }
+    .auth-promo-section {
+        padding: 24px 16px ;
+        margin: 25px 0 ;
+    }
+    .promo-actions-row {
+        flex-direction: column ;
+        gap: 12px ;
+    }
+    .promo-actions-row button {
+        width: 100% ;
+        justify-content: center ;
+    }
+
+    /* Core Modal Pop-Up Fixed Heights Configuration for Small Phones */
+    .auth-overlay .auth-card {
+        flex-direction: column ;
+        height: 85vh ; /* स्क्रीन साइज के हिसाब से फिक्स बॉक्स */
+        width: 94% ;
+        max-width: 420px ;
+        border-radius: 16px ;
+        background: #ffffff ;
+        display: flex ;
+        overflow: hidden ; 
+        transform: none ;
+        opacity: 1 ;
+    }
+    
+    .auth-overlay .brand-panel {
+        flex: none ;
+        width: 100% ;
+        padding: 45px 20px 20px 20px ;
+        text-align: center ;
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) ;
+    }
+    
+    .auth-overlay .brand-panel::before { display: none ; }
+    .auth-overlay .brand-panel h2 { font-size: 1.3rem ; margin: 0 ; color: #ffffff ; }
+    .auth-overlay .brand-panel p, 
+    .auth-overlay .brand-panel .tagline,
+    .auth-overlay .trust-features { display: none ; }
+    
+    /* आंतरिक फ़ॉर्म पैनल में वर्टिकल स्क्रॉल बार एक्टिव करना */
+    .auth-overlay .form-panel {
+        flex: 1 1 auto ;
+        width: 100% ;
+        background: #ffffff ;
+        position: relative ;
+        overflow-y: auto ; /* मोबाइल पर लंबे फ़ॉर्म को स्क्रॉल देने के लिए */
+        -webkit-overflow-scrolling: touch ;
+        display: block ;
+    }
+    
+    .auth-overlay .form-box {
+        position: static ; /* एब्सोल्यूट हटाकर स्टेटिक किया ताकि स्क्रॉल काम करे */
+        width: 100% ;
+        height: auto ;
+        padding: 24px 20px 35px 20px ;
+        background: #ffffff ;
+        opacity: 1 ; 
+        transform: none ; 
+        visibility: visible ;
+    }
+    
+    /* डेस्कटॉप एनीमेशन बाईपास */
+    .auth-overlay .auth-card.show-signup .sign-in-box,
+    .auth-overlay .auth-card.show-signup .sign-up-box,
+    .auth-overlay .sign-in-box,
+    .auth-overlay .sign-up-box {
+        transform: none ;
+        opacity: 1 ;
+    }
+    
+    /* मोबाइल डिस्प्ले स्विचिंग कंट्रोल */
+    .auth-overlay .auth-card:not(.show-signup) .signin-box { display: flex ; }
+    .auth-overlay .auth-card:not(.show-signup) .sign-up-box { display: none ; }
+    .auth-overlay .auth-card.show-signup .sign-up-box { display: flex ; }
+    .auth-overlay .auth-card.show-signup .sign-in-box { display: none ; }
+
+    /* मोबाइल पर अपलोडर ज़ोन की पैडिंग थोड़ी कॉम्पैक्ट करना */
+    .auth-overlay .file-upload-zone {
+        padding: 0px 0px ;
+    }
+
+    .auth-overlay .close-modal-btn {
+        color: #ffffff ;
+        right: 15px ;
+        top: 12px ;
+        font-size: 2.2rem ;
+    }
+}
+/*==================file upload section ends===============================*/
+
+/* --- Isolated Mobile Breaks --- */
+/* ==========================================================================
+   THE UNBREAKABLE MOBILE VISIBILITY OVERRIDE (100% FIXED & ATTACHED)
+   ========================================================================== */
+@media (max-width: 850px) {
+    /* 1. मुख्य कार्ड को मोबाइल के अनुकूल री-स्ट्रक्चर करना */
+    .auth-overlay .auth-card {
+        flex-direction: column ;
+        height: auto ; 
+        min-height: 480px ;
+        width: 92% ;
+        max-width: 400px ;
+        border-radius: 16px ;
+        background: #ffffff ;
+        display: flex ;
+        overflow: visible ; /* हिडन हटाया ताकि कोई एलिमेंट दबे नहीं */
+        transform: none ;
+        opacity: 1 ;
+    }
+    
+    /* 2. हेडर पैनल को छोटा और क्लीन करना */
+    .auth-overlay .brand-panel {
+        flex: none ;
+        width: 100% ;
+        padding: 40px 20px 20px 20px ;
+        text-align: center ;
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) ;
+        height: auto ;
+    }
+    
+    .auth-overlay .brand-panel::before {
+        display: none ;
+    }
+    
+    .auth-overlay .brand-panel h2 {
+        font-size: 1.3rem ;
+        margin: 0 ;
+        line-height: 1.3 ;
+        color: #ffffff ;
+    }
+    
+    .auth-overlay .brand-panel p, 
+    .auth-overlay .brand-panel .tagline,
+    .auth-overlay .trust-features {
+        display: none ; /* गैर-ज़रूरी चीज़ों को ब्लॉक किया */
+    }
+    
+    /* 3. फॉर्म होल्डर पैनल को एब्सोल्यूट से नॉर्मल ब्लॉक में बदलना */
+    .auth-overlay .form-panel {
+        flex: none ;
+        width: 100% ;
+        background: #ffffff ;
+        position: relative ;
+        height: auto ;
+        display: block ;
+        transform: none ;
+        opacity: 1 ;
+    }
+    
+    /* 4. फ़ॉर्म बॉक्स को मोबाइल पर ज़बरदस्ती आँखों के सामने लाना */
+    .auth-overlay .form-box {
+        position: relative ; /* एब्सोल्यूट हटाया ताकि यह नीचे अटैच हो सके */
+        top: auto ;
+        left: auto ;
+        width: 100% ;
+        height: auto ;
+        padding: 25px 20px 30px 20px ;
+        background: #ffffff ;
+        
+        /* किसी भी डेस्कटॉप ट्रांसफ़ॉर्म या ओपेसिटी को कुचलना */
+        opacity: 1 ; 
+        transform: none ; 
+        visibility: visible ;
+    }
+    
+    /* 5. डेस्कटॉप की खिसकने वाली क्लासेस को मोबाइल पर पूरी तरह न्यूट्रल करना */
+    .auth-overlay .auth-card.show-signup .sign-in-box,
+    .auth-overlay .auth-card.show-signup .sign-up-box,
+    .auth-overlay .sign-in-box,
+    .auth-overlay .sign-up-box {
+        transform: none ;
+        opacity: 1 ;
+        position: relative ;
+    }
+    
+    /* 6. एक्टिव स्टेट के आधार पर सिर्फ सही फॉर्म को डिस्प्ले करना (Strict Control) */
+    .auth-overlay .auth-card:not(.show-signup) .signin-box {
+        display: flex ; /* लॉगिन बॉक्स दिखेगा */
+    }
+    .auth-overlay .auth-card:not(.show-signup) .sign-up-box {
+        display: none ; /* साइन-अप छिपेगा */
+    }
+    
+    .auth-overlay .auth-card.show-signup .sign-up-box {
+        display: flex ; /* साइन-अप बॉक्स दिखेगा */
+    }
+    .auth-overlay .auth-card.show-signup .sign-in-box {
+        display: none ; /* लॉगिन छिपेगा */
+    }
+
+    /* 7. मोबाइल पर क्लोज (X) बटन */
+    .auth-overlay .close-modal-btn {
+        color: #ffffff ;
+        right: 15px ;
+        top: 80px ;
+        font-size: 2.2rem ;
+    }
+}
+/* ==========================================================================
+                      /* ==========================================================================
+   NEW CONTINUOUS INPUT DESIGN & GOOGLE BRANDED BUTTON STYLING
+   ========================================================================== */
+
+/* Input field description label text */
+.auth-overlay .input-label-text {
+    font-size: 0.88rem ;
+    font-weight: 500 ;
+    color: var(--auth-text-dark) ;
+    text-align: left ;
+    margin-bottom: 6px ;
+    width: 100% ;
+}
+
+/* Redesigned Single field container */
+.auth-overlay .input-container.single-field-mode {
+    background: #ffffff ;
+    border: 1px solid #cbd5e1 ;
+    border-radius: 8px ;
+    padding: 0 12px ;
+    margin-bottom: 20px ;
+}
+
+.auth-overlay .input-container.single-field-mode:focus-within {
+    border-color: #2563eb ; /* Premium Modern Blue focus matching your image */
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) ;
+}
+
+.auth-overlay .input-container.single-field-mode input {
+    padding: 12px 0 ;
+    font-size: 0.92rem ;
+}
+
+.auth-overlay .input-container.single-field-mode input::placeholder {
+    color: #94a3b8 ;
+}
+
+/* Premium Blue Action Button Override matching your screenshot */
+.auth-overlay .action-btn-prime {
+    background-color: #2563eb ; /* Pure Blue Gradient-less */
+    border-radius: 8px ;
+    padding: 14px ;
+    font-size: 0.95rem ;
+    font-weight: 500 ;
+}
+.auth-overlay .action-btn-prime:hover {
+    background-color: #1d4ed8 ;
+}
+
+/* Branded Continue with Google Button */
+.auth-overlay .google-auth-btn {
+    width: 100% ;
+    background: #ffffff ;
+    border: 1px solid #cbd5e1 ;
+    color: #334155 ;
+    padding: 12px ;
+    border-radius: 8px ;
+    font-size: 0.92rem ;
+    font-weight: 500 ;
+    font-family: inherit ;
+    cursor: pointer ;
+    display: flex ;
+    align-items: center ;
+    justify-content: center ;
+    gap: 12px ; /* लोगो और टेक्स्ट के बीच की दूरी */
+    transition: background-color 0.2s ;
+    outline: none ;
+    box-shadow: none ;
+    overflow: hidden ;
+}
+
+.auth-overlay .google-auth-btn Img {
+    width: 18px ;
+    height: 18px ;
+}
+
+.auth-overlay .google-auth-btn:hover {
+    background-color: #f8fafc ;
+    border-color: #cbd5e1 ;
+}
+
+/* Dynamic Content Divider Form Matrix */
+.auth-overlay .form-matrix-divider {
+    display: flex ;
+    align-items: center ;
+    text-align: center ;
+    margin: 16px 0 ;
+    width: 100% ;
+}
+.auth-overlay .form-matrix-divider::before, 
+.auth-overlay .form-matrix-divider::after {
+    content: '' ;
+    flex: 1 ;
+    border-bottom: 1px solid #e2e8f0 ;
+}
+.auth-overlay .form-matrix-divider span {
+    padding: 0 10px ;
+    font-size: 0.85rem ;
+    color: #94a3b8 ;
+}
+
+/* Bottom Legal Terms Link Styling */
+.auth-overlay .auth-legal-footer {
+    font-size: 0.76rem ;
+    color: #94a3b8 ;
+    line-height: 1.5 ;
+    margin-top: 20px ;
+    text-align: center ;
+}
+.auth-overlay .auth-legal-footer A {
+    color: #64748b ;
+    text-decoration: underline ;
+}
+.auth-overlay .auth-legal-footer a:hover {
+    color: #2563eb ;
+}
+/*========================================================================== */
+      /*========================================================================
+             BIHAR DRUGS AGENCY (BDA) - LIST VIEW POP CSS STARTS
+========================================================================*/ 
+/* Toast Notification Main Container */
+.orientation-toast {
+    position: fixed;
+    bottom: -100px; /* Shuru me screen se niche chupa rahega */
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bda-global-nav-color); /* Dark premium background */
+    color: var(--bg-light);
+    padding: 15px 20px;
+    border-radius: 8px;
+   /* box-shadow: 0 5px 20px rgba(0,0,0,0.3);*/
+    z-index: 99999;
+    width: 90%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: bottom 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Bounce up animation */
+}
+
+/* Jab toast active hoga tab upar aayega */
+.orientation-toast.show {
+    bottom: 300px; /* Screen ke bottom se 30px upar dikhega */
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.toast-icon {
+    font-size: 24px;
+}
+
+.toast-text {
+    font-size: 18px;
+    line-height: 1.6;
+    flex-grow: 1;
+    letter-spacing: 2px;
+    font-family: var(--font-serif);
+
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    color: var(--auth-bg-light);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.toast-close:hover {
+    color: #ffffff;
+}
+
+/* 🔥 10 Seconds Progress Bar Animation */
+.toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: var(--accent-color); /* Progress bar color (Blue) */
+    width: 100%;
+}
+
+.orientation-toast.show .toast-progress {
+    animation: countdown 10s linear forwards;
+}
+
+@keyframes countdown {
+    from { width: 100%; }
+    to { width: 0%; }
+}
+/*========================================================================
+               BIHAR DRUGS AGENCY (BDA) - LIST VIEW POP CSS ENDS
+========================================================================*/ 
+
+
+/*========================================================================
+             BIHAR DRUGS AGENCY (BDA) - FOOTER PAGE STARTS
+========================================================================*/ 
+ * {
+        box-sizing: border-box;
+        margin: 0 0px 0 0px;
+        padding: 0;
+      }
+
+ /*==========Footer page starts========================*/
+.bda-f-main-footer {
+   background-color: var(--bda-global-nav-color); 
+    color: var(--text-footer) ;
+    padding: 3rem 1.5rem ;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif ;
+    width: 100% ;
+    box-sizing: border-box ;
+    z-index: 10001;
+}
+
+.bda-f-footer-container {
+    max-width: 1200px ;
+    margin: 0 auto ;
+    display: grid ;
+    grid-template-columns: 3.5fr 4.5fr 4fr ; /* 3 column layout for desktop */
+    gap: 2.5rem ;
+    align-items: start ;
+    box-sizing: border-box ;
+}
+
+/* Logo & Branding Block */
+.bda-f-logo-area h2 {
+    font-size: 2.25rem ;
+    font-weight: 700 ;
+    margin-bottom: 1.5rem ;
+    color: var(--text-footer) ;
+}
+
+.bda-f-logo-cyan {
+    color: #00bfb3 ; 
+}
+
+.bda-f-quick-links {
+    font-size: 0.95rem ;
+    color: var(--text-footer) ;
+    margin-bottom: 1.5rem ;
+}
+ 
+.bda-f-quick-links a {
+    color: var(--text-footer);
+    text-decoration: none ;
+    margin: 0 4px ;
+    transition: opacity 0.2s ;
+}
+
+.bda-f-quick-links a:hover {
+    opacity: 0.8 ;
+}
+
+.bda-f-brand-name {
+    font-size: 1.15rem ;
+    font-weight: 700 ;
+    color: var(--text-footer) ;
+}
+/*-----------home hover css----*/
+    /*------link hover css ------*/
+.home-f-quick-links{
+    color: var(--dark-neutral);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.home-f-quick-links::after{
+     content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease, left 0.3s ease;
+
+}     
+.home-f-quick-links:hover{
+    color: var(--accent-color);
+}
+.home-f-quick-links:hover::after{
+    width: 100%;
+    left: 0;
+}
+/*-------article hove css-----*/
+.article-f-quick-links{
+    color: var(--dark-neutral);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.article-f-quick-links::after{
+     content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease, left 0.3s ease;
+
+}     
+.article-f-quick-links:hover{
+    color: var(--accent-color);
+}
+.article-f-quick-links:hover::after{
+    width: 100%;
+    left: 0;
+}
+/*--------article hover css-------*/
+/*--------pricelist hover css-------*/
+.pricelist-f-quick-links{
+    color: var(--dark-neutral);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.pricelist-f-quick-links::after{
+     content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease, left 0.3s ease;
+
+}     
+.pricelist-f-quick-links:hover{
+    color: var(--accent-color);
+}
+.pricelist-f-quick-links:hover::after{
+    width: 100%;
+    left: 0;
+}
+/*--------pricelist hover css-------*/
+/*--------about hover css-------*/
+.about-f-quick-links{
+    color: var(--dark-neutral);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.about-f-quick-links::after{
+     content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease, left 0.3s ease;
+
+}     
+.about-f-quick-links:hover{
+    color: var(--accent-color);
+}
+.about-f-quick-links:hover::after{
+    width: 100%;
+    left: 0;
+}
+/*--------about hover css-------*/
+/*--------faq hover css-------*/
+.contact-f-quick-links{
+    color: var(--dark-neutral);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.contact-f-quick-links::after{
+     content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease, left 0.3s ease;
+
+}     
+.contact-f-quick-links:hover{
+    color: var(--accent-color);
+}
+.contact-f-quick-links:hover::after{
+    width: 100%;
+    left: 0;
+}
+/*--------contact hover css-------*/
+/*--------faq hover css-------*/
+.faq-f-quick-links{
+    color: var(--dark-neutral);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.faq-f-quick-links::after{
+     content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease, left 0.3s ease;
+
+}     
+.faq-f-quick-links:hover{
+    color: var(--accent-color);
+}
+.faq-f-quick-links:hover::after{
+    width: 100%;
+    left: 0;
+}
+/*--------faq hover css-------*/
+/*------link hover css ------*/
+/*---Contact Info with Custom SVG Icons)-----*/
+.bda-f-contact-area {
+    display: flex ;
+    flex-direction: column ;
+    gap: 1.25rem ;
+}
+
+.bda-f-info-row {
+    display: flex ;
+    align-items: center ;
+    gap: 1rem ;
+}
+
+.bda-f-icon-circle {
+    width: 42px ;
+    height: 42px ;
+    background-color: var(--accent-color); 
+    background: var(--text-footer);
+    /* Multi-layered shadows: inner glow for depth, sharp outer drop shadow */
+    box-shadow: 
+    var(--text-footer);
+    border: 1px solid var(--bda-global-nav-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0 ;
+}
+
+.bda-f-icon-circle svg {
+    width: 20px ;
+    height: 20px ;
+    fill: var(--accent-color);
+}
+
+.bda-f-info-text {
+    font-size: 0.95rem ;
+    line-height: 1.4 ;
+    color: var(--text-footer);
+}
+
+/*------About Company Sociel Media block-----*/
+.bda-f-about-area h3 {
+    font-size: 1.1rem ;
+    font-weight: 700 ;
+    margin-bottom: 1rem ;
+    color: var(--text-footer);
+}
+
+.bda-f-about-text {
+    font-size: 0.88rem ;
+    line-height: 1.6 ;
+    color: var(--text-footer);
+    margin-bottom: 1.5rem ;
+}
+
+.bda-f-social-wrapper {
+    display: flex ;
+    gap: 0.75rem ;
+}
+
+.bda-f-social-box {
+    width: 36px ;
+    height: 36px ;
+    background-color: var(--text-footer); /* Sociel icon White box */
+    border-radius: 4px ;
+    display: flex ;
+    align-items: center ;
+    justify-content: center ;
+    text-decoration: none ;
+    transition: transform 0.2s ;
+}
+.bda-f-social-box:hover {
+    transform: translateY(-3px) ;
+    
+}
+
+.bda-f-social-box svg {
+    width: 18px ;
+    height: 18px ;
+    fill: var(--text-footer) ; /* Inbox colo */
+}
+
+/* --- 📱 2.Mobile & tablet responsive --- */
+@media (max-width: 768px) {
+    body .bda-f-footer-container  {
+        grid-template-columns: 1fr ; /* 1 column Layot */
+        gap: 3rem ;
+        text-align: center ; /* All items align centre */
+        
+
+    }
+
+    body .bda-f-info-row {
+        flex-direction: column ; /* Icon uper side and text beneath */
+        gap: 0.5rem ;
+    }
+
+    body .bda-f-social-wrapper {
+        justify-content: center ; /* Sociel media icon will be in centre */
+    }
+}
+@media (max-width: 768px) {
+    /* from will be hideel by defalt in mobile  */
+    body .bda-search-form {
+        display: none ;
+        position: fixed ;
+        top: 100% ;
+        right: 0 ;
+        background-color: var(--bda-global-nav-color);
+        width: 220px ;
+        margin-top: 0.75rem ;
+        border: 1px solid var(--text-footer);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2) ;
+        border-radius: 4px ;
+        overflow: hidden ;
+    }
+
+    /* 🌟 on activation of class by java script form will show */
+    body .bda-search-form.bda-search-open {
+        display: flex ; /* Attention hera display must be flex */
+    }
+}
+/*========================================================================
+             BIHAR DRUGS AGENCY (BDA) - FOOTER PAGE ENDS
+========================================================================*/ 
+/*========================================================================
+             BIHAR DRUGS AGENCY (BDA) - LIST VIEW POP CSS STARTS
+========================================================================*/ 
+/* Toast Notification Main Container */
+.orientation-toast {
+    position: fixed;
+    bottom: -100px; /* Shuru me screen se niche chupa rahega */
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bda-global-nav-color); /* Dark premium background */
+    color: var(--bg-light);
+    padding: 15px 20px;
+    border-radius: 8px;
+   /* box-shadow: 0 5px 20px rgba(0,0,0,0.3);*/
+    z-index: 99999;
+    width: 90%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: bottom 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Bounce up animation */
+}
+
+/* Jab toast active hoga tab upar aayega */
+.orientation-toast.show {
+    bottom: 300px; /* Screen ke bottom se 30px upar dikhega */
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.toast-icon {
+    font-size: 24px;
+}
+
+.toast-text {
+    font-size: 18px;
+    line-height: 1.6;
+    flex-grow: 1;
+    letter-spacing: 2px;
+    font-family: var(--font-serif);
+
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    color: var(--auth-bg-light);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.toast-close:hover {
+    color: #ffffff;
+}
+
+/* 🔥 10 Seconds Progress Bar Animation */
+.toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: var(--accent-color); /* Progress bar color (Blue) */
+    width: 100%;
+}
+
+.orientation-toast.show .toast-progress {
+    animation: countdown 10s linear forwards;
+}
+
+@keyframes countdown {
+    from { width: 100%; }
+    to { width: 0%; }
+}
+/*========================================================================
+               BIHAR DRUGS AGENCY (BDA) - LIST VIEW POP CSS ENDS
+========================================================================*/ 
+
+/*========================================================================*/
+/*                            GRID VIEW CSS STARTS
+/*========================================================================*/
+/* व्यू बटन्स का डिज़ाइन */
+.bda-view-switcher {
+    margin-bottom: 1.5rem;
+}
+.bda-view-btn {
+    padding: 10px 20px;
+    border: 1px solid #cbd5e0;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 6px;
+}
+.bda-view-btn.active {
+    background: #00bfb3;
+    color: white;
+    border-color: #00bfb3;
+}
+
+/* 🔒 मुख्य कंट्रोलर क्लासेस */
+.bda-view-block {
+    width: 100%;
+}
+
+/* चालू करने की क्लास */
+.display-on {
+    display: block !important;
+}
+
+/* पूरी तरह गायब करने की क्लास (यह कोड को लोड तो रखेगा पर स्क्रीन से हटा देगा) */
+.display-off {
+    display: none !important;
+}
+/*========================================================================*/
+/*                            GRID VIEW CSS STARTS
+/*========================================================================*/
+.bda-page-wrapper {
+    
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.bda-filter-panel {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+/* 🟩 3 कॉलम फ़िल्टर ग्रिड: कंपनी, कैटेगरी और सर्च बार अगल-बगल */
+.bda-filters-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1.5fr; 
+    gap: 2rem;
+    border-top: 1px solid #edf2f7;
+    padding-top: 1.25rem;
+    margin-bottom: 1.5rem;
+    align-items: start;
+}
+
+.bda-filter-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* ग्रीन ज़ोन में सर्च बार इनपुट स्टाइल */
+.bda-search-green-zone {
+    width: 100%;
+}
+
+.bda-input-search {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.bda-input-search:focus {
+    border-color: #25d366; /* ग्रीन फोकस इफ़ेक्ट */
+    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.15);
+}
+
+.filter-label-text {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #2d3748;
+}
+
+.bda-checkbox-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.bda-category-list-scroll {
+    max-height: 160px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.bda-check-lbl {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: #4a5568;
+    cursor: pointer;
+}
+
+.all-companies-highlight, .all-categories-highlight {
+    color: #00bfb3;
+}
+
+/* एक्शन पैनल */
+.bda-action-panel {
+    display: flex;
+    gap: 1rem;
+    border-top: 1px solid #edf2f7;
+    padding-top: 1.25rem;
+}
+
+.bda-btn-action {
+    padding: 11px 22px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-excel { background-color: #1f7246; color: white; }
+.btn-excel:hover { background-color: #154c2e; }
+.btn-whatsapp { background-color: #25d366; color: white; }
+.btn-whatsapp:hover { background-color: #1bd75b; }
+
+/* ग्रिड ब्लॉक्स */
+.bda-matrix-block-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.bda-product-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.bda-brand-title { font-size: 1.15rem; font-weight: 700; text-align: center; margin: 0; }
+.bda-btn-more-info { width: 100%; background: transparent; color: #4a5568; border: 1px solid #cbd5e0; padding: 10px 16px; border-radius: 25px; font-weight: 600; cursor: pointer; }
+.bda-btn-more-info:hover { background: #00bfb3; color: white; border-color: #00bfb3; }
+.bda-card-body { font-size: 0.88rem; display: flex; flex-direction: column; gap: 0.75rem; border-top: 1px solid #f7fafc; padding-top: 1.25rem; }
+.bda-detail-row { display: flex; flex-direction: column; gap: 2px; }
+.bda-label { font-size: 0.75rem; font-weight: 700; color: #a0aec0; }
+.bda-value { color: #4a5568; font-weight: 500; }
+.bda-price { color: #2b6cb0; font-weight: 700; font-size: 1.1rem; }
+.bda-card-footer { border-top: 1px solid #edf2f7; padding-top: 0.75rem; text-align: right; }
+.company-badge { font-size: 0.75rem; font-weight: 600; padding: 3px 10px; border-radius: 4px; }
+.badge-jnj { background: #fee2e2; color: #dc2626; }
+
+/* 📱 मोबाइल रिस्पॉन्सिव */
+/* 📱 मोबाइल और टैबलेट रिस्पॉन्सिव (Small Screens) */
+@media (max-width: 950px) {
+    /* 1. पूरे फ़िल्टर पैनल को एक वर्टिकल फ्लो में लाएं */
+    .bda-filter-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    /* 2. फ़िल्टर्स ग्रिड को फ्लेक्स में बदलें ताकि क्रम (order) बदला जा सके */
+    .bda-filters-grid {
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: none; /* ग्रिड हटाकर फ्लेक्स लागू किया */
+        gap: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    /* 3. कंपनी और कैटेगरी फ़िल्टर को सबसे ऊपर रखें */
+    .bda-filters-grid .bda-filter-column:nth-child(1) {
+        order: 1; /* कंपनी फ़िल्टर पहले नंबर पर */
+    }
+    .bda-filters-grid .bda-filter-column:nth-child(2) {
+        order: 2; /* कैटेगरी फ़िल्टर दूसरे नंबर पर */
+    }
+
+    /* 4. बटन्स वाले पैनल को तीसरे नंबर पर लाएं */
+    .bda-action-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        order: 3; /* बटन्स अब फ़िल्टर्स के ठीक नीचे आएंगे */
+        border-top: none;
+        padding-top: 0;
+    }
+
+    /* 5. 🟩 सर्च बार को सबसे नीचे व्हाट्सएप बटन के बाद सेट करें */
+    .bda-filters-grid .bda-search-green-zone {
+        order: 4; /* यह पूरे पैनल में सबसे नीचे व्हाट्सएप बटन के नीचे आ जाएगा */
+        border-top: 1px dashed #edf2f7;
+        padding-top: 1rem;
+    }
+
+    /* 6. प्रोडक्ट ग्रिड मोबाइल में हमेशा 100% विड्थ पर रहेगा */
+    .bda-matrix-block-container {
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+    }
+}
+/*========================================================================*/
+/*                            GRID VIEW CSS ENDS
+/*========================================================================*/
+/*========================================================================*/
+/*                            LIST VIEW CSS STARTS
+/**************************************************************************/
+ :root {
+        --bda-global-nav-color:  #1a2238;
+        --text-header: #f9fbfd;
+        --text-footer: #f9fbfd;
+        --ramba-secion-color: #f9fbfd;
+        --bg-color: #f9fbfd;
+        --text-main: #ff4500;
+        --text-muted: #1a2238;
+        --border-color: #eeeeee;
+        --font-serif: "Playfair Display", Georgia, serif;
+        --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+        --container-max-width: 1200px; /* वेबसाइट के मुख्य कंटेंट की अधिकतम चौड़ाई */
+        --primary-color: #1a2238;   /* Deep Blue Theme */
+        --accent-color: #ff4500;    /* Vibrant Action Orange */
+        --text-dark: #333333;
+        --text-light: #666666;
+        --bg-light: #f9fbfd;
+        --white: #ffffff;
+        --error-red: #ef4444;
+        --success-green: #22c55e;
+        --bda-hamburger: #1a2238;
+        --bda-nav-container: #1a2238;
+        /* 1. Define the variables globally */
+        --main-margin-left: 10px;
+        --main-margin-right: 10px;
+        --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+
+      * {
+        box-sizing: border-box;
+        margin: 0 0px 0 0px;
+        padding: 0;
+      }
+
+      .body {
+        font-family: var(--font-sans);
+        background-color: var(--bda-global-nav-color);
+        color: var(--text-main);
+        line-height: 1.7;
+        padding: 0;
+      }
+    /*========================================================================
+                    BIHAR DRUGS AGENCY (BDA) - HEADER PAGE STARTS
+     ========================================================================*/
+/* --- 1. Top Navbar Styling --- */
+.bda-global-nav {
+    /* 2. Apply the variables to your elements */
+    background-color: var(--bda-global-nav-color);
+    padding: 1.5rem 0 ;
+    position: fixed ;
+    top: 0 ;
+    left: 0;
+    z-index: 10001 ;
+    width: 100% ;
+}
+.bda-nav-container {
+    max-width: 1200px ;
+    margin: 0 auto ;
+    padding: 0 1.5rem ;
+    display: flex ;
+    justify-content: space-between ;
+    align-items: center ;
+    box-sizing: border-box ;
+}
+.bda-brand-logo {
+    color: #ffffff ;
+    font-size: 1.75rem ;
+    font-weight: 800 ;
+    text-decoration: none ;
+    letter-spacing: 1px ;
+}
+
+.bda-nav-menu {
+    display: flex ;
+    list-style: none ;
+    gap: 1.75rem ;
+    margin: 0 ;
+    padding: 0 ;
+}
+
+.bda-nav-menu a {
+    color: var(--bg-light);
+    text-decoration: none ;
+    font-weight: 500 ;
+    font-size: 22px ;
+    /*opacity: 0.85 ;*/
+    transition: all 0.8s ease ; 
+    text-align: center;
+}
+.bda-nav-menu a:hover, 
+.bda-nav-menu a.bda-active {
+    opacity: 1 ;
+    border-radius: 8px;
+    padding-bottom: 4px ;
+    /*border: 2px solid #d71920;*/
+    color: var(--accent-color);
+}
+@media (max-width: 768px) {
+   .bda-nav-menu { display: none ; }
+}
+/* --- Hemberg Buttun Style (it will be hiden by defalt in large screen) --- */
+.bda-hamburger {
+    display: none ;
+    flex-direction: column ;
+    justify-content: space-between ;
+    width: 30px ;
+    height: 21px ;
+    background: transparent ;
+    border: none ;
+    cursor: pointer ;
+    padding: 0 ;
+    z-index: 10001 ;
+}
+
+.bda-hamburger span {
+    width: 100% ;
+    height: 3px ;
+    background-color:var(--bda-global-nav-color);
+    border-radius: 2px ;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) ;
+}
+
+/* --- 📱 Mobile screen's Responsive Rules  --- */
+@media (max-width: 768px) {
+    .bda-hamburger {
+        display: flex ; /* Hembuerg button Will show */
+    }
+
+    /* in Mobile menu will be drop down type in sparate box  */
+    body .bda-nav-menu {
+        display: flex ;
+        flex-direction: column ;
+        position: absolute ;
+        top: 100% ;
+        left: 0 ;
+        width: 100% ;
+        background-color: var(--accent-color); 
+        padding: 0 ;
+        gap: 0 ;
+        max-height: 0 ; 
+        overflow: hidden ;
+        transition: max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1) ; /* Smooth Opening*/
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1) ;
+    }
+
+    body .bda-nav-menu li {
+        width: 100% ;
+        border-top: 1px solid var(--accent-color);
+    }
+
+    body .bda-nav-menu a {
+        display: block ;
+        padding: 1.25rem 1.5rem ;
+        width: 100% ;
+    }
+
+    body .bda-nav-menu a:hover, 
+    body .bda-nav-menu a.bda-active {
+        background-color: var(--accent-color);
+        border-bottom: none ;
+        padding-bottom: 1.25rem ;
+        color: var(--bg-color);
+    }
+
+    /* --- 🌟 JAvscript se active classes --- */
+    
+    /* When Menu will open (Max-height will get Greater) */
+    body .bda-nav-menu.bda-menu-open {
+        max-height: 400px ; 
+    }
+
+    /* Animation for turning Hmeburg to 'x' */
+    .bda-hamburger.bda-close-toggle span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg) ;
+    }
+    .bda-hamburger.bda-close-toggle span:nth-child(2) {
+        opacity: 0 ; 
+    }
+    .bda-hamburger.bda-close-toggle span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg) ;
+    }
+}
+
+.bda-nav-container {
+    max-width: 1200px ;
+    margin: 0 auto ;
+    padding: 0 1.5rem ;
+    display: flex ;
+    align-items: center ;
+    box-sizing: border-box ;
+}
+
+/* logo and Links to be kept left side (setting) */
+.bda-brand-logo {
+    color: var(--auth-bg-light) ;
+    text-decoration: none ;
+    letter-spacing: 2px ;
+    margin-right: 2rem ;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.bda-nav-menu {
+    display: flex ;
+    list-style: none ;
+    gap: 1.5rem ;
+    margin: 0 ;
+    padding: 0 ;
+    flex-grow: 1 ; 
+}
+
+.bda-nav-menu a:hover, 
+.bda-nav-menu a.bda-active {
+    opacity: 1 ;
+    border-bottom: 2px solid var(--bg-light);
+    padding-bottom: 4px ;
+}
+
+/* --- 2. Desktop Search Bar with orange Button --- */
+.bda-search-wrapper {
+    position: relative ;
+}
+
+.bda-mobile-search-trigger {
+    display: none ; /* on Desktop Mobile icon will hide */
+}
+
+.bda-search-form {
+    display: flex ;
+    align-items: center ;
+    border: 2px solid var(--auth-bg-light);
+    background-color: transparent ;
+    border-radius: 2px ;
+    overflow: hidden ;
+    height: 40px;
+    min-width: 18%;
+}
+
+.bda-search-input {
+    background-color: var(--bda-global-nav-color);
+    border: none ;
+    padding: 0.4rem 0.75rem ;
+    color: var(--auth-bg-light);
+    font-size: 0.9rem ;
+    outline: none ;
+    width: 180px ;
+}
+
+.bda-search-input::placeholder {
+    color: var(--auth-bg-light);
+    opacity: 0.7 ;
+}
+
+.bda-search-btn {
+    background-color: #ff3d00 ; 
+    color: var(--auth-bg-light);
+    padding: 15px;
+    cursor: pointer ;
+    font-size: 17px ;
+    display: flex ;
+    align-items: center ;
+    justify-content: center ;
+}
+
+/* --- 3. Hemberg Button Base Design--- */
+.bda-hamburger {
+    display: none ;
+    flex-direction: column ;
+    justify-content: space-between ;
+    width: 24px ;
+    height: 18px ;
+    background: transparent ;
+    border: none ;
+    cursor: pointer ;
+    padding: 0 ;
+}
+
+.bda-hamburger span {
+    width: 100% ;
+    height: 2.5px ;
+    background-color: var(--bg-color);
+    border-radius: 2px ;
+    transition: all 0.2s ease ;
+    
+}
+/* --- 📱 4. Mobile Tablet screen Responsive Rules --- */
+@media (max-width: 768px) {
+    .bda-nav-container {
+        justify-content: space-between ; 
+    }
+
+    /* Hemburg Will show left side */
+    .bda-hamburger {
+        display: flex ;
+        order: 1 ;
+    }
+
+    /* Logo will come in middle */
+    .bda-brand-logo {
+        order: 2 ;
+        margin: 0 auto ;
+        position: absolute ;
+        left: 50% ;
+        transform: translateX(-50%) ;
+    }
+
+    /* Search raper will be Right side  */
+    .bda-search-wrapper {
+        order: 3 ;
+    }
+
+    /* On Mobile Inplace of Search bar only Search Icin Will show */
+    .bda-mobile-search-trigger {
+        display: block ;
+        background: transparent ;
+        border: none ;
+        color: #ffffff ;
+        font-size: 1.25rem ;
+        cursor: pointer ;
+    }
+
+    /* Mobile Search Form  will be hidden when triggered will show below */
+    body .bda-search-form {
+        display: none;
+        position: absolute !important;
+        top: 100%;
+        right: 0;
+        background-color: #f9fbfd;
+        width: 220px;
+        margin-top: 0.75rem;
+        border: 1px solid #f9fbfd;
+        box-shadow: 0 4px 10px rgba(212, 8, 8, 0.2);
+    }
+
+    /* When java script Class will be Activated then Mobile search Box will show */
+    body .bda-search-form.bda-search-open {
+        display: flex;
+    }
+
+    body .bda-search-input {
+        width: 100% ;
+        padding: 0.5rem ;
+    }
+
+    /* Mobile Slide Down menu links */
+    body .bda-nav-menu {
+        display: flex ;
+        flex-direction: column ;
+        position: absolute ;
+        top: 100% ;
+        left: 0 ;
+        width: 100% ;
+        background-color: var(--bda-global-nav-color);
+        padding: 0 ;
+        gap: 0 ;
+        max-height: 0 ;
+        overflow: hidden ;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1) ;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1) ;
+    }
+
+    body .bda-nav-menu li {
+        width: 100% ;
+        border-top: 1px solid rgba(255,255,255,0.05) ;
+        
+
+    }
+
+    body .bda-nav-menu a {
+        display: block ;
+        padding: 1.25rem 1.5rem ;
+    }
+
+    body .bda-nav-menu.bda-menu-open {
+        max-height: 400px ;
+    }
+    @media (max-width: 768px) {
+    /* from will be hiden by defalt in mobile  */
+    body .bda-search-form {
+        display: none ;
+        position: fixed ;
+        top: 100% ;
+        right: 0 ;
+        background-color: var(--bda-global-nav-color);
+        width: 220px ;
+        margin-top: 0.75rem ;
+        border: 1px solid var(--text-footer);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2) ;
+        border-radius: 4px ;
+        overflow: hidden ;
+    }
+
+    /* 🌟 on activation of class by java script form will show */
+    body .bda-search-form.bda-search-open {
+        display: flex ; /* Attention hera display must be flex */
+    }
+}
+
+
+    /* Hemburg to close & turn into 'x' mark */
+    .bda-hamburger.bda-close-toggle span:nth-child(1) { transform: translateY(7.5px) rotate(45deg) ; }
+    .bda-hamburger.bda-close-toggle span:nth-child(2) { opacity: 0 ; }
+    .bda-hamburger.bda-close-toggle span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg) ; }
+}
+/*=========================================================================*/
+    /*BIHAR DRUGS AGENCY (BDA) - NEW HEADER FRAMEWORk ENDS  ========= */
+/*=========================================================================*/  
+    /*========================================================================
+             BIHAR DRUGS AGENCY (BDA) - PRODUCTS MATRIX PAGE STARTS
+  ========================================================================*/
+
+:root {
+    --pharma-purple: #6a1b9a;      /* स्क्रीनशॉट का सटीक डार्क पर्पल थीम कलर */
+    --pharma-pink-text: #d81b60;  /* एक्टिव कैटेगरी का मैजेंटा पिंक कलर */
+    --pharma-bg-light: #fdfdfd;
+    --pharma-border-color: #e5e7eb;
+    --pharma-txt-main: #1f2937;
+    --pharma-txt-muted: #4b5563;
+    --pharma-font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: #f9fafb;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Banner Typography Setup */
+.bda-pharma-header-banner {
+    width: 100%;
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--pharma-border-color);
+    font-family: var(--pharma-font-family);
+}
+
+.bda-pharma-header-banner h2 {
+   font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--pharma-txt-main);
+    margin: 0;
+    letter-spacing: -0.5px;
+   
+   
+    
+}
+
+/* Master Layout Framework Grid Grid */
+.bda-pharma-dashboard-layout {
+    max-width: 1350px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 260px 1fr; /* बाईं तरफ फिक्स कैटेगरी, दाईं तरफ पूरी लिस्ट */
+    gap: 10px;
+    font-family: var(--pharma-font-family);
+}
+
+/* --- Left Sidebar Component Rules --- */
+.bda-pharma-categories-sidebar {
+    background: #ffffff;
+    border: 1px solid var(--pharma-border-color);
+    border-radius: 12px;
+    padding: 24px 16px;
+    height: max-content;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+}
+
+.bda-pharma-categories-sidebar .sidebar-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--pharma-purple);
+    margin: 0 0 20px 0;
+    border-bottom: 2px solid #f3e5f5;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.categories-list {
+    list-style: none ;
+    padding: 0 ;
+    margin: 0 ;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.category-item {
+    text-align: left;
+}
+
+.category-item a {
+    display: block;
+    padding: 10px 14px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--pharma-txt-main);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.category-item a:hover {
+    background-color: #f3e5f5;
+    color: var(--pharma-purple);
+}
+
+/* Active Class matching image magenta color */
+.category-item.active-cat a {
+    color: var(--pharma-pink-text) ;
+    background-color: rgba(216, 27, 96, 0.04);
+    font-weight: 700;
+}
+
+/* --- Right Main Panel Content Systems --- */
+.bda-pharma-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Clean Branded Input Search Area Bar */
+.bda-pharma-search-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.search-bar-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 1rem;
+}
+
+.bda-pharma-search-wrapper input {
+    width: 100%;
+    padding: 14px 16px 14px 44px;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--pharma-txt-main);
+    outline: none;
+    transition: all 0.2s;
+}
+
+.bda-pharma-search-wrapper input:focus {
+    border-color: var(--pharma-purple);
+    box-shadow: 0 0 0 3px rgba(106, 27, 154, 0.08);
+}
+
+.bda-pharma-search-wrapper input::placeholder {
+    color: #94a3b8;
+}
+
+/* --- PARTIALLY RESPONSIVE HIGH-PRECISION DATA TABLE --- */
+.bda-pharma-table-viewport {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid var(--pharma-border-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    overflow: hidden;
+}
+
+.bda-pharma-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.bda-pharma-data-table thead tr {
+    background-color: var(--pharma-purple); /* ठोस डार्क पर्पल हेडर पट्टी */
+}
+
+.bda-pharma-data-table th {
+    color: #ffffff ;
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 16px 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+.bda-pharma-data-table th:last-child {
+    border-right: none;
+}
+
+.bda-pharma-data-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--pharma-border-color);
+    color: var(--pharma-txt-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+/* Zebra shading alternating rows matching picture grid */
+.bda-pharma-data-table tbody tr:nth-child(even) {
+    background-color: #fdfdfd;
+}
+.bda-pharma-data-table tbody tr:nth-child(odd) {
+    background-color: #f7f7f9;
+}
+
+.bda-pharma-data-table tbody tr:hover {
+    background-color: #f3e5f5; /* रो पर माउस ले जाने पर प्रीमियम पर्पल ग्लो इफेक्ट */
+}
+
+.brand-name-bold {
+    font-weight: 700 ;
+    color: #374151 ;
+}
+
+.composition-text-primary {
+    color: #555c66 ;
+    font-weight: 500;
+    text-align: left ;
+}
+
+/* No Results Notification Node */
+.bda-no-results-alert {
+    display: none;
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--pharma-txt-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   PARTIALLY RESPONSIVE MOBILE CONFIGURATION (SWIPE PROTECTION ZONE)
+   ========================================================================== */
+@media (max-width: 950px) {
+    .bda-pharma-dashboard-layout {
+        grid-template-columns: 1fr ; /* कैटेगरी ऊपर चली जाएगी और लिस्ट नीचे */
+        gap: 20px ;
+        padding: 0 12px ;
+        margin: 15px auto ;
+    }
+
+    .bda-pharma-categories-sidebar {
+        padding: 16px 12px ;
+    }
+
+    .categories-list {
+        flex-direction: row ; /* मोबाइल टैबलेट पर कैटेगरीज एक सुंदर लेटी हुई कतार बन जाएँगी */
+        overflow-x: auto ;   /* कैटेगरीज के लिए हॉरिजॉन्टल स्वाइप चालू */
+        white-space: nowrap ;
+        padding-bottom: 6px ;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .category-item a {
+        padding: 8px 12px ;
+        font-size: 0.85rem ;
+    }
+
+    /* सबसे जरूरी फिक्स: यहाँ टेबल पिचकने के बजाय मोबाइल पर 100% सेफ स्वाइप देगी */
+    .bda-pharma-table-viewport {
+        overflow-x: auto ; /* टेबल के नीचे का हॉरिजॉन्टल स्क्रॉल एक्टिव */
+        -webkit-overflow-scrolling: touch ;
+    }
+
+    .bda-pharma-data-table {
+        min-width: 780px ; /* यह टेबल की चौड़ाई को लॉक रखता है ताकि मोबाइल पर टेक्स्ट न दबे */
+    }
+
+    .bda-pharma-data-table th, 
+    .bda-pharma-data-table td {
+        padding: 12px 14px ;
+        font-size: 0.85rem ;
+    }
+}
+/*-------------------------This Has Been Addded Later------------------------*/
+/* ==========================================================================
+   UPDATED INFRASTRUCTURE FOR EXPORT BUTTONS & ACTIONS ROWS
+   ========================================================================= */
+/* Top Summary Export Floating Bar */
+.bda-export-action-bar {
+    max-width: 1310px;
+    margin: 20px auto 0 auto;
+    padding: 14px 24px;
+    background: #ffffff;
+    border: 1px solid var(--pharma-border-color);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    font-family: var(--pharma-font-family);
+}
+
+.export-counter-txt {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--pharma-txt-main);
+}
+.export-counter-txt span {
+    color: var(--pharma-purple);
+    font-weight: 700;
+}
+
+.export-buttons-group {
+    display: flex;
+    gap: 12px;
+}
+
+.action-export-btn {
+    border: none ;
+    outline: none ;
+    padding: 10px 20px ;
+    border-radius: 6px ;
+    font-size: 0.88rem ;
+    font-weight: 600 ;
+    cursor: pointer ;
+    display: inline-flex ;
+    align-items: center ;
+    gap: 8px ;
+    transition: all 0.2s ;
+    font-family: inherit ;
+}
+
+/* Excel Brand Color theme Rules */
+.action-export-btn.excel-theme {
+    background-color: #107c41 ; /* Pure Microsoft Excel Green */
+    color: #ffffff ;
+}
+.action-export-btn.excel-theme:hover:not(:disabled) {
+    background-color: #0b5931 ;
+}
+
+/* WhatsApp Brand Color theme Rules */
+.action-export-btn.whatsapp-theme {
+    background-color: #25d366 ; /* WhatsApp Green */
+    color: #ffffff ;
+}
+.action-export-btn.whatsapp-theme:hover:not(:disabled) {
+    background-color: #1cbd55 ;
+}
+
+.action-export-btn:disabled {
+    background-color: #cbd5e1 ;
+    color: #94a3b8 ;
+    cursor: not-allowed ;
+}
+
+/* View Details Action Link Custom Rules */
+.row-view-details {
+    color: var(--pharma-purple) ;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+.row-view-details:hover {
+    text-decoration: underline ;
+    color: var(--pharma-pink-text) ;
+}
+
+/* Row selection state dynamic background highlight */
+tr.row-is-selected {
+    background-color: rgba(106, 27, 154, 0.03) ;
+}
+
+/* Checkbox Inputs Sizing Rules inside tables */
+.bda-pharma-data-table input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+/*------------------------------category ke liye-------------*/
+.category-item {
+    cursor: pointer ;
+}
+.category-item a {
+    pointer-events: none; /* यह क्लिक इवेंट को सीधा LI टैग पर ट्रांसफर कर देगा */
+}
+
+
+/* ==========================================================================
+   UPDATED MULTI-BRAND COMPANY CHECKS INFRASTRUCTURE STYLING
+   ========================================================================== */
+
+.company-section-title {
+    margin-top: 30px ; /* कैटेगरीज से दूरी बनाने के लिए */
+}
+
+.company-checkbox-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 6px;
+    text-align: left;
+}
+
+/* Premium Custom Checkbox Alignment */
+.company-check-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--pharma-txt-main);
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+.company-check-label input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Outer custom box design matching premium layouts */
+.company-custom-box {
+    height: 18px;
+    width: 18px;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.company-check-label:hover input ~ .company-custom-box {
+    border-color: var(--pharma-purple);
+}
+
+.company-check-label input:checked ~ .company-custom-box {
+    background-color: var(--pharma-purple);
+    border-color: var(--pharma-purple);
+}
+
+/* Vector check sign inside box */
+.company-custom-box::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 4px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.company-check-label input:checked ~ .company-custom-box::after {
+    display: block;
+}
+
+/* Mobile responsive fixes for companies checkboxes layout */
+@media (max-width: 950px) {
+    .company-checkbox-wrapper {
+        flex-direction: row ;
+        overflow-x: auto ;
+        white-space: nowrap ;
+        gap: 16px ;
+        padding-bottom: 8px ;
+        border-top: 1px solid var(--pharma-border-color);
+        padding-top: 14px ;
+    }
+}
+/* --- Branded Action View Details Custom Rules --- */
+.bda-pharma-data-table .row-view-details {
+    color: var(--pharma-purple) ;
+    font-weight: 600 ;
+    font-size: 0.85rem ;
+    text-decoration: none ;
+    white-space: nowrap ;
+    transition: color 0.2s ease ;
+}
+
+.bda-pharma-data-table .row-view-details:hover {
+    color: var(--pharma-pink-text) ;
+    text-decoration: underline ;
+}
+
+/* Row selected state highlight overlay tint */
+tr.row-is-selected {
+    background-color: rgba(106, 27, 154, 0.03) ;
+}
+/* --- View More Premium Action Link Styles --- */
+.bda-pharma-data-table .row-view-details {
+    color: var(--pharma-purple) ;
+    font-weight: 700 ;
+    font-size: 0.85rem ;
+    text-decoration: none ;
+    white-space: nowrap ;
+    border: 1px solid var(--pharma-purple) ;
+    padding: 6px 12px ;
+    border-radius: 6px ;
+    transition: all 0.2s ease ;
+    background: transparent;
+}
+
+.bda-pharma-data-table .row-view-details:hover {
+    color: #ffffff ;
+    background-color: var(--pharma-pink-text) ;
+    border-color: var(--pharma-pink-text) ;
+    box-shadow: 0 2px 8px rgba(216, 27, 96, 0.2) ;
+}
+/* ==========================================================================
+   UPDATED MULTI-BRAND COMPANY CHECKS & VIEW MORE BUTTON STYLING
+   ========================================================================== */
+.company-section-title {
+    margin-top: 30px ; /* कैटेगरीज से दूरी बनाने के लिए */
+}
+
+.company-checkbox-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 6px;
+    text-align: left;
+}
+
+/* Premium Custom Checkbox Alignment */
+.company-check-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--pharma-txt-main);
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+.company-check-label input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Outer custom box design matching premium layouts */
+.company-custom-box {
+    height: 18px;
+    width: 18px;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.company-check-label:hover input ~ .company-custom-box {
+    border-color: var(--pharma-purple);
+}
+
+.company-check-label input:checked ~ .company-custom-box {
+    background-color: var(--pharma-purple);
+    border-color: var(--pharma-purple);
+}
+
+/* Vector check sign inside box */
+.company-custom-box::after {
+    content: "";:root {
+    --pharma-purple: #6a1b9a;      
+    --pharma-pink-text: #d81b60;  
+    --pharma-bg-light: #fdfdfd;
+    --pharma-border-color: #e5e7eb;
+    --pharma-txt-main: #1f2937;
+    --pharma-txt-muted: #4b5563;
+    --pharma-font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: #f9fafb;
+    margin: 0;
+    padding: 0;
+}
+
+.bda-pharma-header-banner {
+    width: 100%;
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--pharma-border-color);
+    font-family: var(--pharma-font-family);
+    
+
+}
+
+.bda-pharma-header-banner h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--pharma-txt-main);
+    margin: 0;
+    letter-spacing: -0.5px;
+    
+}
+
+.bda-export-action-bar {
+    max-width: 1310px;
+    margin: 20px auto 0 auto;
+    padding: 14px 24px;
+    background: #ffffff;
+    border: 1px solid var(--pharma-border-color);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    font-family: var(--pharma-font-family);
+}
+
+.export-counter-txt {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--pharma-txt-main);
+}
+.export-counter-txt span {
+    color: var(--pharma-purple);
+    font-weight: 700;
+}
+
+.export-buttons-group {
+    display: flex;
+    gap: 12px;
+}
+
+.action-export-btn {
+    border: none ;
+    outline: none ;
+    padding: 10px 20px ;
+    border-radius: 6px ;
+    font-size: 0.88rem ;
+    font-weight: 600 ;
+    cursor: pointer ;
+    display: inline-flex ;
+    align-items: center ;
+    gap: 8px ;
+    transition: all 0.2s ;
+    font-family: inherit ;
+}
+
+.action-export-btn.excel-theme {
+    background-color: #107c41 ; 
+    color: #ffffff ;
+}
+.action-export-btn.excel-theme:hover:not(:disabled) {
+    background-color: #0b5931 ;
+}
+
+.action-export-btn.whatsapp-theme {
+    background-color: #25d366 ; 
+    color: #ffffff ;
+}
+.action-export-btn.whatsapp-theme:hover:not(:disabled) {
+    background-color: #1cbd55 ;
+}
+
+.action-export-btn:disabled {
+    background-color: #cbd5e1 ;
+    color: #94a3b8 ;
+    cursor: not-allowed ;
+}
+
+.bda-pharma-dashboard-layout {
+    max-width: 1350px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 260px 1fr; 
+    gap: 30px;
+    font-family: var(--pharma-font-family);
+}
+
+.bda-pharma-categories-sidebar {
+    background: #ffffff;
+    border: 1px solid var(--pharma-border-color);
+    border-radius: 12px;
+    padding: 24px 16px;
+    height: max-content;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+}
+
+.bda-pharma-categories-sidebar .sidebar-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--pharma-purple);
+    margin: 0 0 20px 0;
+    border-bottom: 2px solid #f3e5f5;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.categories-list {
+    list-style: none ;
+    padding: 0 ;
+    margin: 0 ;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.category-item {
+    text-align: left;
+    cursor: pointer ;
+}
+.category-item a { pointer-events: none; display: block; padding: 10px 14px; font-size: 0.92rem; font-weight: 600; color: var(--pharma-txt-main); text-decoration: none; border-radius: 6px; }
+.category-item a:hover { background-color: #f3e5f5; color: var(--pharma-purple); }
+.category-item.active-cat a { color: var(--pharma-pink-text) ; background-color: rgba(216, 27, 96, 0.04); font-weight: 700; }
+
+.company-section-title { margin-top: 30px ; }
+.company-checkbox-wrapper { display: flex; flex-direction: column; gap: 12px; padding: 10px 6px; text-align: left; }
+.company-check-label { display: inline-flex; align-items: center; gap: 10px; font-size: 0.92rem; font-weight: 500; color: var(--pharma-txt-main); cursor: pointer; user-select: none; position: relative; }
+.company-check-label input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
+.company-custom-box { height: 18px; width: 18px; background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; display: inline-block; position: relative; }
+.company-check-label:hover input ~ .company-custom-box { border-color: var(--pharma-purple); }
+.company-check-label input:checked ~ .company-custom-box { background-color: var(--pharma-purple); border-color: var(--pharma-purple); }
+.company-custom-box::after { content: ""; position: absolute; display: none; left: 6px; top: 2px; width: 4px; height: 9px; border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.company-check-label input:checked ~ .company-custom-box::after { display: block; }
+
+.bda-pharma-main-content { display: flex; flex-direction: column; gap: 20px; }
+.bda-pharma-search-wrapper { position: relative; width: 100%; }
+.search-bar-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #9ca3af; font-size: 1rem; }
+.bda-pharma-search-wrapper input { width: 100%; padding: 14px 16px 14px 44px; border: 1px solid #cbd5e1; background: #ffffff; border-radius: 8px; font-family: inherit; font-size: 0.95rem; color: var(--pharma-txt-main); outline: none; }
+.bda-pharma-search-wrapper input:focus { border-color: var(--pharma-purple); box-shadow: 0 0 0 3px rgba(106, 27, 154, 0.08); }
+
+.bda-pharma-table-viewport { width: 100%; background: #ffffff; border: 1px solid var(--pharma-border-color); border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01); overflow: hidden; }
+.bda-pharma-data-table { width: 100%; border-collapse: collapse; text-align: left; }
+.bda-pharma-data-table thead tr { background-color: var(--pharma-purple); }
+.bda-pharma-data-table th { color: #ffffff ; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.5px; text-transform: uppercase; padding: 16px 20px; border-right: 1px solid rgba(255, 255, 255, 0.1); }
+.bda-pharma-data-table th:last-child { border-right: none; }
+.bda-pharma-data-table td { padding: 16px 20px; border-bottom: 1px solid var(--pharma-border-color); color: var(--pharma-txt-muted); font-size: 0.9rem; font-weight: 500; vertical-align: middle; }
+.bda-pharma-data-table tbody tr:nth-child(even) { background-color: #fdfdfd; }
+.bda-pharma-data-table tbody tr:nth-child(odd) { background-color: #f7f7f9; }
+.bda-pharma-data-table tbody tr:hover { background-color: #f3e5f5; }
+.brand-name-bold { font-weight: 700 ; color: #374151 ; }
+.composition-text-primary { color: #555c66 ; font-weight: 500; }
+.bda-no-results-alert { display: none; padding: 40px 20px; text-align: center; color: var(--pharma-txt-muted); font-size: 0.95rem; font-weight: 500; }
+
+.bda-pharma-data-table .row-view-details {
+    color: var(--pharma-purple) ;
+    font-weight: 700 ;
+    font-size: 0.85rem ;
+    text-decoration: none ;
+    white-space: nowrap ;
+    border: 1px solid var(--pharma-purple) ;
+    padding: 6px 12px ;
+    border-radius: 6px ;
+    display: inline-block ;
+    transition: all 0.2s ease ;
+    background: transparent;
+}
+.bda-pharma-data-table .row-view-details:hover {
+    color: #ffffff ;
+    background-color: var(--pharma-pink-text) ;
+    border-color: var(--pharma-pink-text) ;
+    box-shadow: 0 2px 8px rgba(216, 27, 96, 0.2) ;
+}
+
+tr.row-is-selected { background-color: rgba(106, 27, 154, 0.03) ; }
+.bda-pharma-data-table input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; }
+
+@media (max-width: 950px) {
+    .bda-pharma-dashboard-layout { grid-template-columns: 1fr ; gap: 20px ; padding: 0 12px ; }
+    .company-checkbox-wrapper { flex-direction: row ; overflow-x: auto ; white-space: nowrap ; gap: 16px ; border-top: 1px solid var(--pharma-border-color); padding-top: 14px ; }
+    .bda-pharma-table-viewport { overflow-x: auto ; -webkit-overflow-scrolling: touch ; }
+    .bda-pharma-data-table { min-width: 820px ; }
+}
+
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 4px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.company-check-label input:checked ~ .company-custom-box::after {
+    display: block;
+}
+
+/* --- View More Premium Action Link Outline Styles --- */
+.bda-pharma-data-table .row-view-details {
+    color: var(--pharma-purple) ;
+    font-weight: 700 ;
+    font-size: 0.85rem ;
+    text-decoration: none ;
+    white-space: nowrap ;
+    border: 1px solid var(--pharma-purple) ;
+    padding: 6px 12px ;
+    border-radius: 6px ;
+    display: inline-block ;
+    transition: all 0.2s ease ;
+    background: transparent;
+}
+
+.bda-pharma-data-table .row-view-details:hover {
+    color: #ffffff ;
+    background-color: var(--pharma-pink-text) ;
+    border-color: var(--pharma-pink-text) ;
+    box-shadow: 0 2px 8px rgba(216, 27, 96, 0.2) ;
+}
+
+/* Mobile responsive fixes for companies checkboxes layout */
+@media (max-width: 950px) {
+    .company-checkbox-wrapper {
+        flex-direction: row ;
+        overflow-x: auto ;
+        white-space: nowrap ;
+        gap: 16px ;
+        padding-bottom: 8px ;
+        border-top: 1px solid var(--pharma-border-color);
+        padding-top: 14px ;
+    }
+}
+/*========================================================================
+             BIHAR DRUGS AGENCY (BDA) - PRODUCTS MATRIX PAGE ENDS
+  ========================================================================*/    
+  /*========================================================================
+             BIHAR DRUGS AGENCY (BDA) - UPDATED PRODUCTS MATRIX PAGE ENDS
+  ========================================================================*/ 
+    :root {
+    --bda-global-nav-color: #1a2238;
+    --text-header: #f9fbfd;
+    --text-footer: #f9fbfd;
+    --mob-drop-down-color: #212529;
+    --ramba-secion-color: #f9fbfd;
+    --bg-color: #f9fbfd;
+    --text-main: #ff4500;
+    --text-muted: #1a2238;
+    --border-color: #eeeeee;
+    --font-serif: "Playfair Display", Georgia, serif;
+    --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+    --container-max-width: 1200px;
+    --primary-color: #1a2238;
+    --accent-color: #ff4500;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --bg-light: #f9fbfd;
+    --white: #ffffff;
+    --error-red: #ef4444;
+    --success-green: #22c55e;
+    --bda-hamburger: #1a2238;
+    --bda-nav-container: #1a2238;
+    --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    
+    /* List View Specific variables */
+    --pharma-purple: #6a1b9a;
+    --pharma-pink-text: #d81b60;
+    --pharma-bg-light: #fdfdfd;
+    --pharma-border-color: #e5e7eb;
+    --pharma-txt-main: #1f2937;
+    --pharma-txt-muted: #4b5563;
+    --pharma-font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: #f9fafb;
+    color: var(--pharma-txt-main);
+    line-height: 1.7;
+}
+
+  /*========================================================================
+             BIHAR DRUGS AGENCY (BDA) - UPDATED PRODUCTS MATRIX PAGE ENDS
+  ========================================================================*/    
+
+
+/* ==========================================================================
+   🚨 FULL MOBILE & TABLET RESPONSIVE MEDIA QUERIES (FULLY FLOATING FIX)
+   ========================================================================== */
+@media (max-width: 950px) {
+    /* --- Grid View Layout Fixes --- */
+    .bda-filters-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .bda-filters-grid .bda-search-green-zone {
+        order: 4;
+        border-top: 1px dashed #edf2f7;
+        padding-top: 1rem;
+        width: 100%;
+    }
+    .bda-filters-grid .bda-filter-column:nth-child(1) { order: 1; }
+    .bda-filters-grid .bda-filter-column:nth-child(2) { order: 2; }
+
+    .bda-action-panel {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        order: 3;
+        border-top: none;
+        padding-top: 0;
+    }
+    .bda-matrix-block-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* --- List View Responsive Swipe Engine --- */
+    .bda-pharma-dashboard-layout {
+        display: block !important;
+        width: 100% !important;
+        padding: 0 10px !important;
+    }
+    .categories-list {
+        flex-direction: row !important;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 8px;
+    }
+    .company-checkbox-wrapper {
+        flex-direction: row !important;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 16px;
+        border-top: 1px solid var(--pharma-border-color);
+        padding-top: 14px;
+        margin-top: 10px;
+    }
+    
+    /* 📱 मोबाइल वर्टिकल स्क्रीन: लॉकिंग हटाकर वापस स्वाइप चालू किया */
+    .bda-pharma-table-viewport {
+        overflow-x: auto !important;
+        display: block !important;
+        width: 100% !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    .bda-pharma-data-table {
+        width: auto !important;
+        min-width: 850px !important; 
+        table-layout: auto !important; 
+    }
+    .bda-pharma-data-table th, 
+    .bda-pharma-data-table td {
+        white-space: nowrap !important; 
+        padding: 12px 16px !important;
+    }
+    .bda-export-action-bar {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+}
+
+/* ==========================================================================
+   📱 🖥️ MOBILE HORIZONTAL (LANDSCAPE) & DESKTOP AUTO-FIT ENGINE
+   ========================================================================== */
+@media (min-width: 550px) and (max-width: 950px) and (orientation: landscape), (min-width: 951px) {
+    .bda-pharma-dashboard-layout {
+        display: block !important;
+    }
+    .bda-pharma-categories-sidebar {
+        margin-bottom: 20px !important;
+        width: 100% !important;
+    }
+    .bda-pharma-table-viewport {
+        overflow-x: hidden !important; 
+        width: 100% !important;
+    }
+    .bda-pharma-data-table {
+        width: 100% !important;
+        min-width: 100% !important;
+        table-layout: auto !important; 
+    }
+    .bda-pharma-data-table th, 
+    .bda-pharma-data-table td {
+        white-space: normal !important; 
+        word-wrap: break-word;
+        padding: 10px 8px !important; 
+        font-size: 0.85rem !important; 
+    }
+}
+/*==================dummy responsive box=======*/
+/* ==========================================================================
+   📦 50px HIGH PREMIUM RESPONSIVE MATRIX BOX
+   ========================================================================== */
+.bda-responsive-box {
+    width: 100% !important;        /* स्क्रीन के हिसाब से पूरी 100% चौड़ाई */
+    height: 100px !important;       /* ऊँचाई को 50px पर लॉक किया */
+    background-color: #ffffff;     /* बैकग्राउंड का रंग (इसे बदल सकते हैं) */
+    border: 1px solid #e2e8f0;     /* लाइट बॉर्डर लाइन */
+    border-radius: 8px;            /* कोनों को हल्का सा घुमाव देने के लिए */
+    
+    /* इसके अंदर के सामान (Text/Buttons) को बीच में अलाइन करने के लिए */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 16px;               /* अंदरूनी स्पेसिंग (बाएँ और दाएँ) */
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02); /* हल्का सा प्रीमियम शैडो */
+    overflow: hidden;              /* कोई भी चीज़ बॉक्स से बाहर न निकले */
+}
+
+/* बॉक्स के अंदर के टेक्स्ट की स्टाइलिंग */
+.box-content-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1a2238;                /* डार्क नेवी कॉर्पोरेट कलर */
+}
+
+/* 📱 छोटे मोबाइल स्क्रीन पर टेक्स्ट ओवरफ्लो से सुरक्षा */
+@media (max-width: 480px) {
+    .bda-responsive-box {
+        padding: 0 10px;           /* मोबाइल पर अंदरूनी स्पेस थोड़ा कम किया */
+    }
+    .box-content-text {
+        font-size: 0.85rem;        /* मोबाइल पर टेक्स्ट थोड़ा छोटा किया ताकि बाहर न निकले */
+    }
+}

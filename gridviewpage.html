@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="gridstyle.css">
+     <script src="gridscript.js"></script>
+</head>
+<body>
+
+<!---------------dummy box---------------------------->
+<!-- Fully Responsive transparent container setup -->
+<div class="dummy-responsive-box">
+    <div class="box-inner-content">
+        <!-- Optional placeholder text inside -->
+        <span>Dummy Box</span>
+    </div>
+</div>
+
+<!---------------dummy box---------------------------->
+    <div class="dashboard-container">
+
+        <!-- GLOWING TOP APP BAR -->
+        <header class="top-bar">
+    <div class="product-counter">
+        <span id="selected-count">0</span> Products Selected
+        
+        <!-- 🌟 पक्का करें कि id="reset-selection-btn" और class="btn-reset-link" दोनों यहाँ लिखे हों -->
+        <button id="reset-selection-btn" class="btn-reset-link" type="button">
+            Clear Selection
+        </button>
+    </div>
+    
+    <div class="action-buttons">
+        <button class="btn btn-toggle" id="view-toggle-btn"><span class="text">Switch Layout</span></button>
+        <button class="btn btn-xlsx">Save to PC (.XLSX)</button>
+        <button class="btn btn-whatsapp">Share on WhatsApp</button>
+    </div>
+</header>
+
+
+        <!-- CORE LAYOUT SYSTEM -->
+        <div class="layout-wrapper">
+            
+            <!-- FLOATING GLASS sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3 class="section-title">Product Categories</h3>
+                    <ul class="category-list">
+                        <li><a href="#" class="category-link active">Show All</a></li>
+                        <li><a href="#" class="category-link">Analgesics</a></li>
+                        <li><a href="#" class="category-link">Gastro</a></li>
+                        <li><a href="#" class="category-link">Surgical Sutures</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="section-title">Filter by Company</h3>
+                    <div class="company-filters">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" checked class="company-select">
+                            <span class="custom-indicator"></span>
+                            <span class="label-text">Johnson & Johnson</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" checked class="company-select">
+                            <span class="custom-indicator"></span>
+                            <span class="label-text">Healthium</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" checked class="company-select">
+                            <span class="custom-indicator"></span>
+                            <span class="label-text">Lotus Surgical</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" checked class="company-select">
+                            <span class="custom-indicator"></span>
+                            <span class="label-text">Meril Life</span>
+                        </label>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- CONTROLS & GRID WINDOW -->
+           <!-- MAIN CONTENT AREA -->
+<main class="main-content">
+    
+    <!-- 🌟 सर्च बॉक्स को यहाँ बिल्कुल अलग रखा गया है ताकि यह लेफ्ट-राइट स्क्रॉल न हो -->
+    <div class="search-fixed-wrapper">
+        <input type="text" class="search-input" id="search-box" placeholder="Search by Brand, Suture parameters...">
+    </div>
+
+    <!-- 🌟 सिर्फ प्रोडक्ट्स की लिस्ट ही इस कंटेनर के अंदर स्क्रॉल होगी -->
+    <div class="scrollable-products-window">
+        <div class="products-container" id="products-wrapper">
+            
+            <!-- PRODUCT CARD 1 -->
+            <article class="product-card">
+                <div class="product-img-box">
+                    <span class="company-tag">Johnson & Johnson</span>
+                    <img src="assets/Jhonson & Jhonson Logo.png" alt="MONOCRYL" class="product-thumbnail">
+                </div>
+                <div class="card-header">
+                    <input type="checkbox" class="product-select-checkbox">
+                    <div class="brand-title-block">
+                        <span class="brand-name">MONOCRYL Ultra</span>
+                        <span class="list-company-name">Johnson & Johnson</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="info-row"><strong>Needle:</strong> 3/8 Circle Reverse Cutting</div>
+                    <div class="info-row"><strong>Suture:</strong> Poliglecaprone 25 Unbraided</div>
+                    <div class="info-row"><strong>Formula:</strong> Deflazacort-6mg</div>
+                </div>
+                <div class="card-footer">
+                    <span class="product-price">₹1,450 <small>/ 12 U</small></span>
+                    <button class="btn-view-more">View Specs</button>
+                </div>
+            </article>
+             <!-- PRODUCT CARD 2 -->
+            <article class="product-card">
+                <div class="product-img-box">
+                    <span class="company-tag">Johnson & Johnson</span>
+                    <img src="assets/Jhonson & Jhonson Logo.png" alt="MONOCRYL" class="product-thumbnail">
+                </div>
+                <div class="card-header">
+                    <input type="checkbox" class="product-select-checkbox">
+                    <div class="brand-title-block">
+                        <span class="brand-name">MONOCRYL Ultra</span>
+                        <span class="list-company-name">Johnson & Johnson</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="info-row"><strong>Needle:</strong> 3/8 Circle Reverse Cutting</div>
+                    <div class="info-row"><strong>Suture:</strong> Poliglecaprone 25 Unbraided</div>
+                    <div class="info-row"><strong>Formula:</strong> Deflazacort-6mg</div>
+                </div>
+                <div class="card-footer">
+                    <span class="product-price">₹1,450 <small>/ 12 U</small></span>
+                    <button class="btn-view-more">View Specs</button>
+                </div>
+            </article>
+                <!-- PRODUCT CARD 3 -->
+            <article class="product-card">
+                <div class="product-img-box">
+                    <span class="company-tag">Johnson & Johnson</span>
+                    <img src="assets/Jhonson & Jhonson Logo.png" alt="MONOCRYL" class="product-thumbnail">
+                </div>
+                <div class="card-header">
+                    <input type="checkbox" class="product-select-checkbox">
+                    <div class="brand-title-block">
+                        <span class="brand-name">MONOCRYL Ultra</span>
+                        <span class="list-company-name">Johnson & Johnson</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="info-row"><strong>Needle:</strong> 3/8 Circle Reverse Cutting</div>
+                    <div class="info-row"><strong>Suture:</strong> Poliglecaprone 25 Unbraided</div>
+                    <div class="info-row"><strong>Formula:</strong> Deflazacort-6mg</div>
+                </div>
+                <div class="card-footer">
+                    <span class="product-price">₹1,450 <small>/ 12 U</small></span>
+                    <button class="btn-view-more">View Specs</button>
+                </div>
+            </article>
+
+               <!-- PRODUCT CARD 4 -->
+            <article class="product-card">
+                <div class="product-img-box">
+                    <span class="company-tag">Johnson & Johnson</span>
+                    <img src="assets/Jhonson & Jhonson Logo.png" alt="MONOCRYL" class="product-thumbnail">
+                </div>
+                <div class="card-header">
+                    <input type="checkbox" class="product-select-checkbox">
+                    <div class="brand-title-block">
+                        <span class="brand-name">MONOCRYL Ultra</span>
+                        <span class="list-company-name">Johnson & Johnson</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="info-row"><strong>Needle:</strong> 3/8 Circle Reverse Cutting</div>
+                    <div class="info-row"><strong>Suture:</strong> Poliglecaprone 25 Unbraided</div>
+                    <div class="info-row"><strong>Formula:</strong> Deflazacort-6mg</div>
+                </div>
+                <div class="card-footer">
+                    <span class="product-price">₹1,450 <small>/ 12 U</small></span>
+                    <button class="btn-view-more">View Specs</button>
+                </div>
+            </article>
+
+            <!-- बाकी के प्रोडक्ट कार्ड्स (Card 2, 3, 4) भी इसी तरह अंदर रहेंगे -->
+
+        </div>
+    </div>
+</main>
+        </div>
+    </div>
+
+   <!-- GLASSMORPHIC POPUP ENGINE -->
+<div class="modal-overlay" id="product-modal">
+    <div class="modal-content">
+        <!-- 🌟 नया: ऊपर क्लोज बटन जोड़ा गया है -->
+        <button class="modal-top-close-btn" id="modal-close-x-btn" aria-label="Close Summary">×</button>
+        
+        <h2 class="modal-title" id="modal-product-title">Technical Specifications</h2>
+        <div class="modal-body" id="modal-product-details">
+            <!-- Javascript maps details into this target row -->
+        </div>
+        <div class="modal-consent-text">
+            ⚠️ <strong>Clinical Notice:</strong> Data displayed represents localized analytics. To view regulatory certificates, structural stresses, and batch logs, view the comprehensive profile.
+        </div>
+        <div class="modal-footer">
+            <!-- 🌟 बदला गया बटन: अब यह क्लोज बटन नहीं, बल्कि एक्सप्लोर बटन है -->
+            <a href="#" class="btn-depth-explore" id="modal-explore-depth-btn">
+                <span class="btn-text">View Depth Analytics</span>
+                <span class="btn-icon">→</span>
+            </a>
+        </div>
+    </div>
+</div>
+ <!--================Footer Page starts===============-->
+      <!--Footer Main Body-->
+<footer class="bda-f-main-footer">
+    <div class="bda-f-footer-container">
+        
+        <!-- Logo & Navigation -->
+        <div class="bda-f-logo-area">
+            <h2>BDA<span class="bda-f-logo-cyan">logo</span></h2>
+            <div class="bda-f-quick-links">
+                <a href="#" class="home-f-quick-links">Home</a> | <a href="#" class="article-f-quick-links">Articles</a> | <a href="#" class="pricelist-f-quick-links">Pricelist</a> | <a href="#" class="about-f-quick-links">About</a> | <a href="#" class="faq-f-quick-links">Faq</a> | <a href="#" class="contact-f-quick-links">Contact</a>
+            </div>
+            <p class="bda-f-brand-name">Bihar Drugs Agency</p>
+        </div>
+
+        <!-- conatact (Phone, Email, Adreess) -->
+        <div class="bda-f-contact-area">
+            <!-- Address -->
+            <div class="bda-f-info-row"> 
+                <div class="bda-f-icon-circle">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 
+                </div>
+                <div class="bda-f-info-text">
+                    Khairat Ahmed Road<br>Near Mazar, Murarpur, Gaya
+                </div>
+            </div>
+            <!-- Contact Number -->
+            <div class="bda-f-info-row">
+                <div class="bda-f-icon-circle">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                </div>
+                <div class="bda-f-info-text">09109236117</div>
+            </div>
+            
+            <!-- Email -->
+            <div class="bda-f-info-row">
+                <div class="bda-f-icon-circle">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </div>
+                <div class="bda-f-info-text">Bihardrugsagency.com</div>
+            </div>
+        </div>
+
+        <!-- Bihar Drugs Agency/BDA Discription -->
+        <div class="bda-f-about-area">
+            <h3>About the company</h3>
+            <p class="bda-f-about-text">
+                BDA/Bihar Drugs agency is a surgeon Centric Medical sutures supplier engaged in the distribution and export of medical Sutures.
+            </p>
+            <!-- Sociel Media Boxes-->
+            <div class="bda-f-social-wrapper">
+               <!-- 🌐 Google  (on Click Google will open) -->
+<a href="https://google.com" target="_blank" class="bda-f-social-box" title="Google">
+    <svg viewBox="0 0 24 24">
+        <path d="M21.35 11.1H12v2.7h5.38c-.24 1.28-1 2.37-2.1 3.1v2.6h3.4c2-1.85 3.15-4.57 3.15-7.82 0-.52-.05-1.03-.14-1.58z" fill="#4285F4"/>
+        <path d="M12 20.5c2.3 0 4.23-.76 5.64-2.07l-3.4-2.6c-.95.63-2.16 1-3.64 1-2.8 0-5.17-1.88-6.02-4.42H1.1v2.68C2.5 17.87 6.96 20.5 12 20.5z" fill="#34A853"/>
+        <path d="M5.98 12.41c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V5.55H1.1C.4 6.96 0 8.54 0 10.22s.4 3.26 1.1 4.67l4.88-3.79z" fill="#FBBC05"/>
+        <path d="M12 4.9c1.25 0 2.37.43 3.26 1.28l2.44-2.44C16.22 2.3 14.3 1.7 12 1.7 6.96 1.7 2.5 4.33 1.1 7.14l4.88 3.79c.85-2.54 3.22-4.42 6.02-4.42z" fill="#EA4335"/>
+    </svg>
+</a>
+               <!-- 👥 Facebook (on Click Google will open) -->
+<a href="https://facebook.com" target="_blank" class="bda-f-social-box" title="Facebook">
+    <svg viewBox="0 0 24 24">
+        <path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z" fill="#1877F2"/>
+    </svg>
+</a>
+                <!-- 🎥 Youtube (on Click Google will open) -->
+<a href="https://youtube.com" target="_blank" class="bda-f-social-box" title="YouTube">
+    <svg viewBox="0 0 24 24">
+        <path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09v1.66c0 .6-.03 1.29-.1 2.09-.06.8-.15 1.43-.28 1.9-.13.48-.39.86-.77 1.15-.38.29-.83.45-1.37.47C17.6 19 14.8 19 11 19c-3.8 0-6.6 0-8.42-.16-.54-.02-.99-.18-1.37-.47-.38-.29-.64-.67-.77-1.15-.13-.47-.22-1.1-.28-1.9-.06-.8-.09-1.49-.09-2.09v-1.66c0-.6.03-1.29.09-2.09.06-.8.15-1.43.28-1.9.13-.48.39-.86.77-1.15.38-.29.83-.45 1.37-.47C4.4 5 7.2 5 11 5c3.8 0 6.6 0 8.42.16.54.02.99.18 1.37.47.38.29.64.67.77 1.15z" fill="#FF0000"/>
+    </svg>
+</a>
+                <!-- 📸 Instagram (on Click Google will open) -->
+<a href="https://instagram.com" target="_blank" class="bda-f-social-box" title="Instagram">
+    <svg viewBox="0 0 24 24">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" fill="#E1306C"/>
+    </svg>
+</a>
+            </div>
+        </div>
+
+    </div>
+</footer>
+      <!--================Footer Page Ends=================-->
+</body>
+</html>
